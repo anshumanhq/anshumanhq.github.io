@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Anshuman Singh</title>
-    <meta name="description" content="Learn about Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Anshuman Singh - AI/ML Engineer & Full-Stack Developer</title>
+    
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Learn about Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher. 60+ projects built, 6+ clients served." />
+    <meta name="keywords" content="Anshuman Singh, about, AI engineer, ML engineer, Python developer, Flask developer, portfolio, bio, skills" />
+    <meta name="author" content="Anshuman Singh" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://anshumanhq.github.io/about.html" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anshumanhq.github.io/about.html" />
+    <meta property="og:title" content="About | Anshuman Singh - AI/ML Engineer" />
+    <meta property="og:description" content="Learn about Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher." />
+    <meta property="og:image" content="https://anshumanhq.github.io/data/image/profile/image.jpg" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About | Anshuman Singh" />
+    <meta name="twitter:description" content="Learn about Anshuman Singh - AI/ML Engineer, Full-Stack Developer, and Physics researcher." />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Anshuman Singh",
+      "url": "https://anshumanhq.github.io/about.html",
+      "description": "Learn about Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Anshuman Singh",
+        "jobTitle": ["AI/ML Engineer", "Full-Stack Developer", "Physics Researcher"]
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -33,8 +67,9 @@
     </header>
 
     <!-- ===== PAGE HERO ===== -->
-    <section class="page-hero">
-        <div class="container">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80'); background-size: cover; background-position: center; position: relative;">
+        <div style="position: absolute; inset: 0; background: rgba(10, 10, 26, 0.7);"></div>
+        <div class="container" style="position: relative; z-index: 1;">
             <h1>About Me</h1>
             <p>AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
         </div>
@@ -45,6 +80,7 @@
         <div class="container">
             <div class="about-grid-full">
                 <div class="about-text-full">
+
                     <h2>👨‍💻 Who I Am</h2>
                     <p>
                         I am a passionate engineer with a unique blend of skills in <strong>Artificial Intelligence</strong>,
@@ -61,78 +97,220 @@
                         <strong>UPTAC Seat Predictor</strong> and upcoming JOSAA/CUET tools.
                     </p>
 
-                    <h2>🛠️ Skills & Technologies</h2>
+                    <!-- ===== SKILLS SECTION WITH LOGOS ===== -->
+                    <h2>🛠️ Skills &amp; Technologies</h2>
+
+                    <!-- Languages -->
+                    <div class="skill-category-title"><i class="fas fa-code"></i> Languages</div>
                     <div class="skills-grid">
-                        <div>
-                            <h4>Languages</h4>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">HTML/CSS</span>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-python" style="color:#3776AB;"></i></span>
+                            <span class="skill-name">Python <small>Primary</small></span>
                         </div>
-                        <div>
-                            <h4>Backend</h4>
-                            <span class="skill-tag">Flask</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">WebSockets</span>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-database" style="color:#00758F;"></i></span>
+                            <span class="skill-name">SQL <small>PostgreSQL, MySQL</small></span>
                         </div>
-                        <div>
-                            <h4>AI/ML</h4>
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Hugging Face</span>
-                            <span class="skill-tag">scikit-learn</span>
-                            <span class="skill-tag">Gemini API</span>
-                            <span class="skill-tag">DeepSeek</span>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-js" style="color:#F7DF1E;"></i></span>
+                            <span class="skill-name">JavaScript <small>ES6+</small></span>
                         </div>
-                        <div>
-                            <h4>Databases</h4>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">Qdrant</span>
-                            <span class="skill-tag">Neo4j</span>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-html5" style="color:#E34F26;"></i><i class="fab fa-css3-alt" style="color:#1572B6; margin-left:4px;"></i></span>
+                            <span class="skill-name">HTML/CSS <small>Responsive</small></span>
                         </div>
-                        <div>
-                            <h4>DevOps & Cloud</h4>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub Actions</span>
-                            <span class="skill-tag">AWS S3</span>
-                            <span class="skill-tag">Cloudflare</span>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="skill-category-title"><i class="fas fa-server"></i> Backend</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-flask" style="color:#000000;"></i></span>
+                            <span class="skill-name">Flask <small>Full-Stack</small></span>
                         </div>
-                        <div>
-                            <h4>Other</h4>
-                            <span class="skill-tag">Stripe</span>
-                            <span class="skill-tag">Razorpay</span>
-                            <span class="skill-tag">PyInstaller</span>
-                            <span class="skill-tag">Tkinter</span>
-                            <span class="skill-tag">React</span>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-bolt" style="color:#009485;"></i></span>
+                            <span class="skill-name">FastAPI <small>Async</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-plug" style="color:#FF6C37;"></i></span>
+                            <span class="skill-name">REST APIs <small>Design</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-exchange-alt" style="color:#4CAF50;"></i></span>
+                            <span class="skill-name">WebSockets <small>Real-time</small></span>
+                        </div>
+                    </div>
+
+                    <!-- AI/ML -->
+                    <div class="skill-category-title"><i class="fas fa-brain"></i> AI / Machine Learning</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-link" style="color:#1C3C3C;"></i></span>
+                            <span class="skill-name">LangChain <small>LLM Apps</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-pytorch" style="color:#EE4C2C;"></i></span>
+                            <span class="skill-name">PyTorch <small>Deep Learning</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-smile" style="color:#FFD21E;"></i></span>
+                            <span class="skill-name">Hugging Face <small>Transformers</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-chart-line" style="color:#F7931E;"></i></span>
+                            <span class="skill-name">scikit-learn <small>ML</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-robot" style="color:#8E75B2;"></i></span>
+                            <span class="skill-name">Gemini API <small>GenAI</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-microchip" style="color:#4A6A8F;"></i></span>
+                            <span class="skill-name">DeepSeek <small>LLM</small></span>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-category-title"><i class="fas fa-database"></i> Databases</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-database" style="color:#00758F;"></i></span>
+                            <span class="skill-name">MySQL <small>Relational</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-database" style="color:#336791;"></i></span>
+                            <span class="skill-name">PostgreSQL <small>Advanced</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-database" style="color:#003B57;"></i></span>
+                            <span class="skill-name">SQLite <small>Embedded</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-vector-square" style="color:#4A90D9;"></i></span>
+                            <span class="skill-name">Qdrant <small>Vector DB</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-project-diagram" style="color:#4A90D9;"></i></span>
+                            <span class="skill-name">Neo4j <small>Graph DB</small></span>
+                        </div>
+                    </div>
+
+                    <!-- DevOps & Cloud -->
+                    <div class="skill-category-title"><i class="fas fa-cloud"></i> DevOps &amp; Cloud</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-docker" style="color:#2496ED;"></i></span>
+                            <span class="skill-name">Docker <small>Containers</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-git-alt" style="color:#F05032;"></i></span>
+                            <span class="skill-name">Git <small>Version Control</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-github" style="color:#181717;"></i></span>
+                            <span class="skill-name">GitHub Actions <small>CI/CD</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-aws" style="color:#FF9900;"></i></span>
+                            <span class="skill-name">AWS S3 <small>Storage</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-cloud" style="color:#F38020;"></i></span>
+                            <span class="skill-name">Cloudflare <small>CDN &amp; Tunnel</small></span>
+                        </div>
+                    </div>
+
+                    <!-- Other -->
+                    <div class="skill-category-title"><i class="fas fa-tools"></i> Other Tools</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-credit-card" style="color:#6772E5;"></i></span>
+                            <span class="skill-name">Stripe <small>Payments</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-credit-card" style="color:#0D2B3E;"></i></span>
+                            <span class="skill-name">Razorpay <small>Payments</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-box" style="color:#4B32C3;"></i></span>
+                            <span class="skill-name">PyInstaller <small>EXE Build</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fas fa-window-maximize" style="color:#0D2B3E;"></i></span>
+                            <span class="skill-name">Tkinter <small>Desktop GUI</small></span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon"><i class="fab fa-react" style="color:#61DAFB;"></i></span>
+                            <span class="skill-name">React <small>Frontend</small></span>
                         </div>
                     </div>
 
                     <h2>🎯 What I'm Looking For</h2>
                     <ul class="goal-list">
                         <li>🚀 Full-time AI/ML Engineer roles</li>
-                        <li>🧠 Generative AI & RAG Systems development</li>
-                        <li>📊 Data Science & Analytics opportunities</li>
-                        <li>🤝 Freelance collaborations & open-source contributions</li>
+                        <li>🧠 Generative AI &amp; RAG Systems development</li>
+                        <li>📊 Data Science &amp; Analytics opportunities</li>
+                        <li>🤝 Freelance collaborations &amp; open-source contributions</li>
                         <li>🔬 Research-oriented roles (AI + Physics)</li>
                     </ul>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== EXPANDED FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Anshuman Singh. Built with ❤️ for the student community.</p>
-            <div class="footer-links">
-                <a href="https://github.com/anshumanhq" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank">LinkedIn</a>
-                <a href="mailto:anshumansingh3697@gmail.com">Email</a>
+            <div class="footer-grid">
+                <!-- Column 1: Brand & Tagline -->
+                <div class="footer-col">
+                    <h4>Anshuman<span>Singh</span></h4>
+                    <p class="footer-tagline">AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
+                    <p class="footer-desc">Building scalable AI systems, commercial software, and free educational tools for the student community.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="certificates.html">Certificates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Connect -->
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://github.com/anshumanhq" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="mailto:anshumansingh3697@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+                        <li><a href="https://orcid.org/0009-0004-7999-768X" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Stats / Trust -->
+                <div class="footer-col">
+                    <h5>By the Numbers</h5>
+                    <ul class="footer-stats">
+                        <li><span>60+</span> Projects Built</li>
+                        <li><span>6+</span> Clients Served</li>
+                        <li><span>1.6K+</span> LinkedIn Followers</li>
+                        <li><span>3</span> Expertise Domains</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anshuman Singh. Built with ❤️ for the student community.</p>
+                <p class="footer-credit">Powered by Python · Flask · GitHub Pages</p>
             </div>
         </div>
     </footer>

@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(certificates => {
             const container = document.getElementById('certificatesList');
             if (!container) return;
+            
             certificates.forEach(cert => {
                 const card = document.createElement('div');
                 card.className = 'certificate-card';
                 card.innerHTML = `
+                    ${cert.image ? `<img src="${cert.image}" alt="${cert.issuer}" style="width:60px; height:60px; object-fit:contain; margin-bottom:12px;" loading="lazy" onerror="this.style.display='none'">` : ''}
                     <h3>${cert.name}</h3>
                     <p class="cert-issuer">${cert.issuer}</p>
                     <p class="cert-date">${cert.date}</p>

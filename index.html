@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anshuman Singh | AI/ML Engineer & Full-Stack Developer</title>
+    <title>Anshuman Singh | AI/ML Engineer &amp; Full-Stack Developer</title>
     
-    <!-- ==================== SEO META TAGS ==================== -->
-    <meta name="description" content="Anshuman Singh - AI/ML Engineer, Full-Stack Developer, and Physics Researcher. 60+ projects built including StudyAI, CBT Portal, and UPTAC Seat Predictor." />
-    <meta name="keywords" content="Anshuman Singh, AI engineer, Python developer, Flask developer, full stack developer, AI/ML, generative AI, knowledge graphs, portfolio, projects, StudyAI, CBT, UPTAC predictor" />
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer. Building scalable AI systems, commercial software, and free educational tools. 60+ projects built." />
+    <meta name="keywords" content="Anshuman Singh, AI engineer, ML engineer, Python developer, Flask developer, full stack developer, generative AI, knowledge graphs, data science, portfolio, StudyAI, CBT, UPTAC predictor" />
     <meta name="author" content="Anshuman Singh" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <link rel="canonical" href="https://anshumanhq.github.io/" />
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://anshumanhq.github.io/" />
     <meta property="og:title" content="Anshuman Singh | AI/ML Engineer & Full-Stack Developer" />
     <meta property="og:description" content="60+ projects built including StudyAI, CBT Portal, and UPTAC Seat Predictor. AI/ML, Python, Flask, Generative AI." />
-    <meta property="og:image" content="assets/profile.jpg" />
+    <meta property="og:image" content="https://anshumanhq.github.io/data/image/profile/image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Anshuman Singh | AI/ML Engineer & Full-Stack Developer" />
     <meta name="twitter:description" content="60+ projects built including StudyAI, CBT Portal, and UPTAC Seat Predictor." />
-    <meta name="twitter:image" content="assets/profile.jpg" />
+    <meta name="twitter:image" content="https://anshumanhq.github.io/data/image/profile/image.jpg" />
     
-    <!-- ==================== STRUCTURED DATA ==================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Anshuman Singh",
       "url": "https://anshumanhq.github.io/",
-      "image": "https://anshumanhq.github.io/assets/profile.jpg",
+      "image": "https://anshumanhq.github.io/data/image/profile/image.jpg",
       "description": "AI/ML Engineer, Full-Stack Developer, and Physics Researcher",
       "jobTitle": ["AI/ML Engineer", "Full-Stack Developer", "Physics Researcher"],
-      "knowsAbout": ["Python", "Flask", "Machine Learning", "Generative AI", "Knowledge Graphs", "LangChain"],
+      "knowsAbout": ["Python", "Flask", "Machine Learning", "Generative AI", "Knowledge Graphs", "LangChain", "Data Science"],
       "sameAs": [
         "https://github.com/anshumanhq",
         "https://www.linkedin.com/in/anshuman-singh-662183303/"
@@ -43,390 +42,233 @@
     }
     </script>
     
-    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563EB',
-                        secondary: '#7C3AED',
-                        accent: '#059669',
-                    },
-                    animation: {
-                        float: 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        /* ===== PROFILE IMAGE STYLES ===== */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px rgba(108, 99, 255, 0.25), 0 0 80px rgba(108, 99, 255, 0.10);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: var(--bg-card);
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 60px rgba(108, 99, 255, 0.35), 0 0 100px rgba(108, 99, 255, 0.15);
+        }
+
+        /* ===== RESPONSIVE: image stacks below text on smaller screens ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-image {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            .hero-image img {
+                max-width: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image img {
+                max-width: 180px;
+            }
+        }
     </style>
 </head>
-
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+<body>
 
     <!-- ===== NAVBAR ===== -->
-    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">Anshuman<span class="text-secondary">Singh</span></a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#projects" class="hover:text-primary transition">Projects</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#contact" class="hover:text-primary transition">Contact</a>
-                <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Anshuman<span>Singh</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-4 px-4">
-            <div class="flex flex-col space-y-3">
-                <a href="#projects" class="hover:text-primary transition">Projects</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#contact" class="hover:text-primary transition">Contact</a>
-                <div class="flex space-x-4 pt-2 border-t border-gray-200 dark:border-gray-700">
-                    <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-primary transition"><i class="fab fa-github text-xl"></i></a>
-                    <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
-                </div>
-            </div>
         </div>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 text-center md:text-left">
-                <span class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm mb-4">✨ 60+ Projects Built</span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Hi, I'm <span class="text-yellow-300">Anshuman Singh</span></h1>
-                <p class="text-xl md:text-2xl mt-4 opacity-90">AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
-                <p class="mt-6 text-lg opacity-80 max-w-xl">
-                    I build scalable AI systems, commercial software, and free educational tools for students.
-                    Currently pursuing BTech CSE with a focus on Generative AI, Knowledge Graphs, and Data Science.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#projects" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-xl">
-                        <i class="fas fa-rocket mr-2"></i>View Projects
-                    </a>
-                    <a href="https://github.com/anshumanhq" target="_blank" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">
-                        <i class="fab fa-github mr-2"></i>GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">
-                        <i class="fab fa-linkedin mr-2"></i>LinkedIn
-                    </a>
+    <!-- ===== HERO SECTION WITH PROFILE IMAGE ===== -->
+    <section id="hero" class="hero" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80'); background-size: cover; background-position: center; position: relative;">
+        <div style="position: absolute; inset: 0; background: rgba(10, 10, 26, 0.75);"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="hero-content">
+                <!-- LEFT: Text -->
+                <div class="hero-text">
+                    <span class="badge">🔬 BTech CSE  · Class of 2030</span>
+                    <h1>Hi, I'm <span class="highlight">Anshuman Singh</span></h1>
+                    <p class="tagline">AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
+                    <p class="description">
+                        I build scalable AI systems, commercial software, and free educational tools
+                        to help students navigate their academic journey. Currently pursuing BTech CSE
+                        with a focus on Generative AI, Knowledge Graphs, and Data Science.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn btn-primary">🚀 View My Work</a>
+                        <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Profile Image -->
+                <div class="hero-image">
+                    <img src="data/image/profile/image.jpg" alt="Anshuman Singh - AI/ML Engineer" />
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="assets/profile.jpg" alt="Anshuman Singh" 
-                     class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white/30 shadow-2xl animate-float object-cover"
-                     onerror="this.src='https://ui-avatars.com/api/?name=Anshuman+Singh&size=320&background=2563EB&color=fff'">
-            </div>
-        </div>
-    </section>
 
-    <!-- ===== STATS ===== -->
-    <section class="py-12 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div><div class="text-3xl font-bold text-primary">60+</div><div class="text-gray-600 dark:text-gray-400">Projects Built</div></div>
-                <div><div class="text-3xl font-bold text-secondary">6+</div><div class="text-gray-600 dark:text-gray-400">Clients Served</div></div>
-                <div><div class="text-3xl font-bold text-accent">1.6K+</div><div class="text-gray-600 dark:text-gray-400">LinkedIn Followers</div></div>
-                <div><div class="text-3xl font-bold text-primary">3</div><div class="text-gray-600 dark:text-gray-400">Expertise Domains</div></div>
+            <!-- ===== STATS BELOW HERO ===== -->
+            <div class="hero-stats-wrapper"><div><br></div>
+                <div class="hero-stats">
+                    <div class="stat-card"><span class="stat-number">6+</span><span class="stat-label">Clients Served</span></div>
+                    <div class="stat-card"><span class="stat-number">60+</span><span class="stat-label">Projects Built</span></div>
+                    <div class="stat-card"><span class="stat-number">1.6K+</span><span class="stat-label">LinkedIn Followers</span></div>
+                </div>
             </div>
         </div>
+
     </section>
 
     <!-- ===== FEATURED PROJECTS ===== -->
-    <section id="projects" class="py-16 bg-gray-50 dark:bg-gray-950">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">🏆 Featured Projects</h2>
-            <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-                A selection of my most impactful work — from AI platforms to commercial software and free educational tools.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- UPTAC Predictor -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-white text-4xl">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">UPTAC Seat Predictor</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Free tool for UPTAC aspirants to predict college and branch chances using 3 years of official cutoff data.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Python</span>
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">JavaScript</span>
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">JSON</span>
-                        </div>
-                        <a href="tools/uptacpredictor/" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            Live Demo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- StudyAI -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white text-4xl">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">StudyAI</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">AI-powered learning platform with real-time chat, visual knowledge mapping, and Stripe/Razorpay payment integration.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Gemini API</span>
-                            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">LangChain</span>
-                        </div>
-                        <a href="https://github.com/anshumanhq/StudyAI" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            View Repo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- CBT School Portal -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white text-4xl">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">CBT School Portal</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Computer Based Testing system with hardware-locked licensing. Sold to 6+ educational institutions. 🚀</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Python</span>
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">PyInstaller</span>
-                        </div>
-                        <a href="https://github.com/anshumanhq/CBT-School-Portal" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            View Repo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serenity AI -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-pink-500 to-orange-500 flex items-center justify-center text-white text-4xl">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Serenity AI</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Multimodal neural ecosystem integrating Gemini, FLUX image generation, and real-time web intelligence.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs">React</span>
-                            <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs">FastAPI</span>
-                            <span class="bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 px-2 py-1 rounded text-xs">HuggingFace</span>
-                        </div>
-                        <a href="https://serenity-ai-techexpert.onrender.com/" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            Live Demo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PyFusion -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white text-4xl">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">PyFusion Framework</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">All-in-one Python framework with built-in web server, database manager, HTTP client, and utilities. Published on PyPI.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Python</span>
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">Open Source</span>
-                        </div>
-                        <a href="https://github.com/anshuman365/pyfusion" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            View Repo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- SecureKit -->
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-white text-4xl">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">SecureKit Library</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Enterprise-grade cryptography library with Argon2id, ChaCha20-Poly1305, and framework integrations.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Security</span>
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">Cryptography</span>
-                            <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded text-xs">PyPI</span>
-                        </div>
-                        <a href="https://github.com/anshuman365/securekit" target="_blank" class="text-primary font-semibold hover:underline text-sm flex items-center">
-                            View Repo <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
+    <section id="featured" class="featured">
+        <div class="container">
+            <h2>🏆 Featured Projects</h2>
+            <p class="section-subtitle">A selection of my most impactful work — from AI platforms to commercial software.</p>
+            <div id="featuredGrid" class="projects-grid">
+                <!-- Dynamically loaded by featured.js -->
             </div>
-            
-            <div class="text-center mt-10">
-                <a href="projects.html" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition shadow-lg">
-                    <i class="fas fa-layer-group mr-2"></i>View All Projects (60+)
+            <div style="text-align:center; margin-top:30px;">
+                <a href="projects.html" class="btn btn-outline">View All Projects →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK LINKS ===== -->
+    <section class="quick-links" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80'); background-size: cover; background-position: center; position: relative;">
+        <div style="position: absolute; inset: 0; background: rgba(10, 10, 26, 0.8);"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="quick-grid">
+                <a href="about.html" class="quick-card">
+                    <span class="quick-icon">👨‍💻</span>
+                    <h3>About Me</h3>
+                    <p>Learn about my journey, skills, and vision.</p>
+                </a>
+                <a href="research.html" class="quick-card">
+                    <span class="quick-icon">📄</span>
+                    <h3>Research</h3>
+                    <p>Explore my publications and research interests.</p>
+                </a>
+                <a href="certificates.html" class="quick-card">
+                    <span class="quick-icon">🎓</span>
+                    <h3>Certificates</h3>
+                    <p>View my certifications and continuous learning.</p>
+                </a>
+                <a href="contact.html" class="quick-card">
+                    <span class="quick-icon">📬</span>
+                    <h3>Contact</h3>
+                    <p>Get in touch for collaborations or opportunities.</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== GOOGLE ADSENSE (Subtle Placement) ===== -->
-    <section class="py-8 bg-white dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-xs text-gray-500 dark:text-gray-500 mb-2">— Sponsored —</p>
+    <!-- ===== GOOGLE ADSENSE ===== -->
+    <div class="container ad-container">
+        <div class="ad-slot">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-2633513915753897"
                  data-ad-slot="2339071842"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-    </section>
+    </div>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="py-16 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">👨‍💻 About Me</h2>
-            <div class="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                <p>
-                    I am a passionate engineer with a unique blend of skills in <strong>Artificial Intelligence</strong>, 
-                    <strong>Full-Stack Development</strong>, and <strong>Physics Research</strong>. 
-                    I love building products that solve real-world problems — from AI-powered learning platforms (StudyAI) 
-                    to commercial Computer-Based Testing systems (CBT Portal) sold to 6+ educational institutions.
-                </p>
-                <p>
-                    My mission is to create <strong>high-impact, scalable software</strong> while making quality education 
-                    and career guidance accessible to every student in India through free tools like 
-                    <strong>UPTAC Seat Predictor</strong> and upcoming JOSAA/CUET tools.
-                </p>
-                <p>
-                    I leverage AI as a co-developer to accelerate project delivery while maintaining quality. 
-                    My approach focuses on understanding business logic and system architecture, 
-                    allowing me to deliver enterprise-level solutions across technology, physics research, 
-                    and real estate consulting.
-                </p>
-                <div class="flex flex-wrap gap-3 mt-6">
-                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm">Python</span>
-                    <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm">Flask</span>
-                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm">PyTorch</span>
-                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm">LangChain</span>
-                    <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm">SQL</span>
-                    <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm">Docker</span>
-                    <span class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-4 py-2 rounded-full text-sm">Git</span>
-                    <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-4 py-2 rounded-full text-sm">React</span>
+    <!-- ===== EXPANDED FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <h4>Anshuman<span>Singh</span></h4>
+                    <p class="footer-tagline">AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
+                    <p class="footer-desc">Building scalable AI systems, commercial software, and free educational tools for the student community.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="certificates.html">Certificates</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Connect -->
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://github.com/anshumanhq" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="mailto:anshumansingh3697@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+                        <li><a href="https://orcid.org/0009-0004-7999-768X" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Stats -->
+                <div class="footer-col">
+                    <h5>By the Numbers</h5>
+                    <ul class="footer-stats">
+                        <li><span>60+</span> Projects Built</li>
+                        <li><span>6+</span> Clients Served</li>
+                        <li><span>1.6K+</span> LinkedIn Followers</li>
+                        <li><span>3</span> Expertise Domains</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== RESEARCH ===== -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-950">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">📄 Research</h2>
-            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 p-8 card-hover">
-                <h3 class="text-2xl font-bold mb-2">The Quantum Ontology of Light: A Critical Review</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-2">Anshuman Singh · Zenodo (CERN) · 2026</p>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">
-                    An open-access critical review exploring the wave-particle duality of light, 
-                    published on Zenodo (CERN-supported repository). This work reflects my deep 
-                    interest in theoretical physics and philosophy of science.
-                </p>
-                <a href="https://github.com/anshumanhq/quantum-ontology-light" target="_blank" class="text-primary font-semibold hover:underline">
-                    <i class="fas fa-external-link-alt mr-2"></i>Read Paper →
-                </a>
-                <span class="ml-4 inline-block bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Zenodo · CERN</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">📬 Get In Touch</h2>
-            <div class="bg-gray-50 dark:bg-gray-950 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-800">
-                <form id="contactForm" action="mailto:anshumansingh3697@gmail.com" method="POST" enctype="text/plain">
-                    <div class="mb-4">
-                        <label class="block font-semibold mb-2">Name</label>
-                        <input type="text" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary" required placeholder="Your Name">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block font-semibold mb-2">Email</label>
-                        <input type="email" name="_replyto" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary" required placeholder="your@email.com">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block font-semibold mb-2">Message</label>
-                        <textarea name="body" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary" required placeholder="Your message..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition shadow-lg">
-                        <i class="fas fa-paper-plane mr-2"></i>Send Message
-                    </button>
-                </form>
-                <div class="mt-6 text-center text-gray-600 dark:text-gray-400">
-                    <p>Or connect via:</p>
-                    <div class="flex justify-center gap-6 mt-3">
-                        <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-primary transition text-2xl"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-primary transition text-2xl"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:anshumansingh3697@gmail.com" class="hover:text-primary transition text-2xl"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2026 Anshuman Singh. Built with ❤️ for the student community.</p>
-            <div class="flex justify-center gap-6 mt-4">
-                <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-white transition">GitHub</a>
-                <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-white transition">LinkedIn</a>
-                <a href="mailto:anshumansingh3697@gmail.com" class="hover:text-white transition">Email</a>
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anshuman Singh. Built with ❤️ for the student community.</p>
+                <p class="footer-credit">Powered by Python · Flask · GitHub Pages</p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Contact Form Handler (Mailto)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const name = form.querySelector('[name="name"]').value;
-            const email = form.querySelector('[name="_replyto"]').value;
-            const message = form.querySelector('[name="body"]').value;
-            window.location.href = `mailto:anshumansingh3697@gmail.com?subject=Portfolio Contact from ${name}&body=${encodeURIComponent(message)}%0A%0AFrom: ${name}%0AEmail: ${email}`;
-        });
-    </script>
-
+    <script src="js/script.js"></script>
+    <script src="js/featured.js"></script>
 </body>
 </html>

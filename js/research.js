@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(research => {
             const container = document.getElementById('researchList');
             if (!container) return;
+            
             research.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'research-card';
                 card.innerHTML = `
+                    ${item.image ? `<img src="${item.image}" alt="${item.title}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:12px;" loading="lazy" onerror="this.style.display='none'">` : ''}
                     <div class="research-meta">
                         <span class="research-year">${item.year}</span>
                         <span class="research-type">${item.type}</span>

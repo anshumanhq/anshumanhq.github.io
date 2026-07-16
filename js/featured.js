@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const featured = projects.filter(p => p.featured === true);
             const container = document.getElementById('featuredGrid');
             if (!container) return;
+            
             featured.forEach(proj => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.innerHTML = `
+                    ${proj.image ? `<img src="${proj.image}" alt="${proj.title}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:12px;" loading="lazy" onerror="this.style.display='none'">` : ''}
                     <h3>${proj.title}</h3>
                     <p>${proj.description}</p>
                     <div class="project-tags">
