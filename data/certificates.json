@@ -5,8 +5,8 @@
     "issuer": "NPTEL - IIT Madras",
     "date": "2026",
     "credential_id": "NPTEL-DSA-2026-1001",
-    "url": null,
-    "skills": ["Python", "Data Structures", "Algorithms"]
+    "skills": ["Python", "Data Structures", "Algorithms"],
+    "image": "https://img.icons8.com/color/96/000000/iit-madras.png"
   },
   {
     "id": 2,
@@ -14,8 +14,8 @@
     "issuer": "freeCodeCamp",
     "date": "2026",
     "credential_id": null,
-    "url": null,
-    "skills": ["Python", "NumPy", "Pandas", "Matplotlib"]
+    "skills": ["Python", "NumPy", "Pandas", "Matplotlib"],
+    "image": "https://img.icons8.com/color/96/000000/freecodecamp.png"
   },
   {
     "id": 3,
@@ -23,8 +23,8 @@
     "issuer": "freeCodeCamp",
     "date": "2026",
     "credential_id": null,
-    "url": null,
-    "skills": ["Python", "Data Analysis", "Pandas"]
+    "skills": ["Python", "Data Analysis", "Pandas"],
+    "image": "https://img.icons8.com/color/96/000000/freecodecamp.png"
   },
   {
     "id": 4,
@@ -32,8 +32,8 @@
     "issuer": "Neo4j GraphAcademy",
     "date": "2025",
     "credential_id": "ceca32bc-93d5-4ca9-b866-279ae926d447",
-    "url": null,
-    "skills": ["Knowledge Graphs", "GenAI", "Neo4j"]
+    "skills": ["Knowledge Graphs", "GenAI", "Neo4j"],
+    "image": "https://img.icons8.com/color/96/000000/neo4j.png"
   },
   {
     "id": 5,
@@ -41,8 +41,8 @@
     "issuer": "Neo4j GraphAcademy",
     "date": "2025",
     "credential_id": "f79f9f0a-7969-4741-9a43-bad78dac8a8b",
-    "url": null,
-    "skills": ["Graph Databases", "Data Modeling"]
+    "skills": ["Graph Databases", "Data Modeling"],
+    "image": "https://img.icons8.com/color/96/000000/neo4j.png"
   },
   {
     "id": 6,
@@ -50,8 +50,8 @@
     "issuer": "NVIDIA",
     "date": "2025",
     "credential_id": "zDMnRFhoTLW1GlGLXCykzA",
-    "url": null,
-    "skills": ["CUDA", "GPU Computing", "Python"]
+    "skills": ["CUDA", "GPU Computing", "Python"],
+    "image": "https://img.icons8.com/color/96/000000/nvidia.png"
   },
   {
     "id": 7,
@@ -59,8 +59,8 @@
     "issuer": "NVIDIA",
     "date": "2025",
     "credential_id": "1tO0Ys3ITkGJkXM3sgBKrQ",
-    "url": null,
-    "skills": ["Deep Learning", "CNN", "Neural Networks"]
+    "skills": ["Deep Learning", "CNN", "Neural Networks"],
+    "image": "https://img.icons8.com/color/96/000000/nvidia.png"
   },
   {
     "id": 8,
@@ -68,25 +68,7 @@
     "issuer": "Coursera (DeepLearning.AI)",
     "date": "2023",
     "credential_id": "RAPBVPTPN45W",
-    "url": null,
-    "skills": ["Neural Networks", "TensorFlow", "Keras"]
-  },
-  {
-    "id": 9,
-    "name": "Improving Deep Neural Networks",
-    "issuer": "Coursera (DeepLearning.AI)",
-    "date": "2023",
-    "credential_id": "NQW3577GA87G",
-    "url": null,
-    "skills": ["Hyperparameter Tuning", "Regularization", "Optimization"]
-  },
-  {
-    "id": 10,
-    "name": "Machine Learning",
-    "issuer": "Coursera (Stanford)",
-    "date": "2023",
-    "credential_id": "9ET5NCJ3F25R",
-    "url": null,
-    "skills": ["Machine Learning", "Supervised Learning", "Unsupervised Learning"]
+    "skills": ["Neural Networks", "TensorFlow", "Keras"],
+    "image": "https://img.icons8.com/color/96/000000/coursera.png"
   }
 ]

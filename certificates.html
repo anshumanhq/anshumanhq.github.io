@@ -1,63 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates | Anshuman Singh</title>
-    <meta name="description" content="Certifications and courses completed by Anshuman Singh.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificates | Anshuman Singh - Continuous Learning</title>
+    <meta name="description" content="Certifications and courses completed by Anshuman Singh including NPTEL DSA, freeCodeCamp, Neo4j, NVIDIA, and Coursera specializations." />
+    <meta name="keywords" content="certificates, certifications, NPTEL, freeCodeCamp, Neo4j, NVIDIA, Coursera, Anshuman Singh" />
+    <link rel="canonical" href="https://anshumanhq.github.io/certificates.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anshumanhq.github.io/certificates.html" />
+    <meta property="og:title" content="Certificates | Anshuman Singh" />
+    <meta property="og:description" content="A collection of certifications from NPTEL, freeCodeCamp, Neo4j, NVIDIA, and Coursera." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+        .card-hover { transition: all 0.3s ease; }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
 
-    <header class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Anshuman<span>Singh</span></a>
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="certificates.html" class="active">Certificates</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span><span></span><span></span>
-                </button>
+    <!-- Same Navbar as projects.html (copy/paste or use include) -->
+    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary">Anshuman<span class="text-secondary">Singh</span></a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="projects.html" class="hover:text-primary transition">Projects</a>
+                <a href="certificates.html" class="text-primary font-semibold">Certificates</a>
+                <a href="research.html" class="hover:text-primary transition">Research</a>
+                <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
             </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="projects.html" class="hover:text-primary transition">Projects</a>
+                <a href="certificates.html" class="text-primary font-semibold">Certificates</a>
+                <a href="research.html" class="hover:text-primary transition">Research</a>
+                <div class="flex space-x-4 pt-2 border-t border-gray-200 dark:border-gray-700">
+                    <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-primary transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="page-hero">
-        <div class="container">
-            <h1>🎓 Certificates</h1>
-            <p>Continuous learning — courses and certifications I've completed.</p>
+    <!-- Hero -->
+    <section class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🎓 Certificates</h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">Continuous learning — certifications from IITs, freeCodeCamp, Neo4j, NVIDIA, and more.</p>
         </div>
     </section>
 
-    <section class="certificates-page">
-        <div class="container">
-            <div id="certificatesList" class="certificates-grid">
-                <!-- Dynamically loaded by JS -->
+    <!-- Adsense (Top) -->
+    <div class="container mx-auto px-4 py-6 text-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2633513915753897" data-ad-slot="2339071842" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Certificates Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div id="certificates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Loaded by JS -->
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
+    <!-- Adsense (Bottom) -->
+    <div class="container mx-auto px-4 py-6 text-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2633513915753897" data-ad-slot="2339071842" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800 mt-8">
+        <div class="container mx-auto px-4 text-center">
             <p>&copy; 2026 Anshuman Singh. Built with ❤️ for the student community.</p>
-            <div class="footer-links">
-                <a href="https://github.com/anshumanhq" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank">LinkedIn</a>
-                <a href="mailto:anshumansingh3697@gmail.com">Email</a>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="https://github.com/anshumanhq" target="_blank" class="hover:text-white transition">GitHub</a>
+                <a href="https://linkedin.com/in/anshuman-singh-662183303" target="_blank" class="hover:text-white transition">LinkedIn</a>
+                <a href="mailto:anshumansingh3697@gmail.com" class="hover:text-white transition">Email</a>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/certificates.js"></script>
+    <script src="js/loaders.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
