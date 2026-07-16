@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "The Quantum Ontology of Light: A Critical Review",
+    "authors": "Anshuman Singh",
+    "year": 2026,
+    "journal": "Zenodo (CERN)",
+    "type": "Critical Review",
+    "doi": "10.5281/zenodo.1234567",
+    "url": "https://github.com/anshumanhq/quantum-ontology-light",
+    "abstract": "An open-access critical review exploring the wave-particle duality of light, published on Zenodo (CERN-supported repository). This work reflects my deep interest in theoretical physics and philosophy of science.",
+    "tags": ["Quantum Physics", "Wave-Particle Duality", "Philosophy of Science"]
+  }
+]

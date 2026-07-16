@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "StudyAI",
+    "description": "AI-powered learning platform with real-time chat, visual knowledge mapping, and Stripe/Razorpay payment integration. Built with Flask, Gemini API, and LangChain.",
+    "tech": ["Flask", "Gemini API", "LangChain", "Stripe", "Razorpay"],
+    "github": "https://github.com/anshumanhq/StudyAI",
+    "live": null,
+    "image": null,
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 2,
+    "title": "CBT School Portal",
+    "description": "Computer Based Testing system with hardware-locked licensing, admin dashboard, student client, and automated result processing. Sold to 6+ educational institutions.",
+    "tech": ["Python", "Flask", "PyInstaller", "SQLite", "Tkinter"],
+    "github": "https://github.com/anshumanhq/CBT-School-Portal",
+    "live": null,
+    "image": null,
+    "featured": true,
+    "commercial": true
+  },
+  {
+    "id": 3,
+    "title": "UPTAC Seat Predictor",
+    "description": "Free web tool for UPTAC aspirants to predict college and branch chances based on 3 years of official cutoff data. No sign-up required.",
+    "tech": ["HTML", "CSS", "JavaScript", "JSON"],
+    "github": "https://github.com/anshumanhq/anshumanhq.github.io/tree/main/tools/uptacpredictor",
+    "live": "https://anshumanhq.github.io/tools/uptacpredictor/",
+    "image": null,
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 4,
+    "title": "Serenity AI",
+    "description": "Multimodal neural ecosystem integrating Gemini, FLUX image generation, and real-time web intelligence with a glassmorphic UI.",
+    "tech": ["React", "FastAPI", "HuggingFace", "Gemini API"],
+    "github": null,
+    "live": null,
+    "image": null,
+    "featured": false,
+    "commercial": false
+  },
+  {
+    "id": 5,
+    "title": "Altivon Holdings",
+    "description": "Digital solutions venture for startups - custom website development and scalable online systems.",
+    "tech": ["HTML", "CSS", "JavaScript", "Flask"],
+    "github": null,
+    "live": "https://altivonholdings.github.io",
+    "image": null,
+    "featured": false,
+    "commercial": true
+  }
+]

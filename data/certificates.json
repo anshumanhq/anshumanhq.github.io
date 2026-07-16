@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Programming, Data Structures and Algorithms using Python",
+    "issuer": "NPTEL - IIT Madras",
+    "date": "2026",
+    "credential_id": "NPTEL-DSA-2026-1001",
+    "url": null,
+    "skills": ["Python", "Data Structures", "Algorithms"]
+  },
+  {
+    "id": 2,
+    "name": "Scientific Computing with Python",
+    "issuer": "freeCodeCamp",
+    "date": "2026",
+    "credential_id": null,
+    "url": null,
+    "skills": ["Python", "NumPy", "Pandas", "Matplotlib"]
+  },
+  {
+    "id": 3,
+    "name": "Data Analysis with Python",
+    "issuer": "freeCodeCamp",
+    "date": "2026",
+    "credential_id": null,
+    "url": null,
+    "skills": ["Python", "Data Analysis", "Pandas"]
+  },
+  {
+    "id": 4,
+    "name": "Neo4j & GenerativeAI Fundamentals",
+    "issuer": "Neo4j GraphAcademy",
+    "date": "2025",
+    "credential_id": "ceca32bc-93d5-4ca9-b866-279ae926d447",
+    "url": null,
+    "skills": ["Knowledge Graphs", "GenAI", "Neo4j"]
+  },
+  {
+    "id": 5,
+    "name": "Graph Data Modeling Fundamentals",
+    "issuer": "Neo4j GraphAcademy",
+    "date": "2025",
+    "credential_id": "f79f9f0a-7969-4741-9a43-bad78dac8a8b",
+    "url": null,
+    "skills": ["Graph Databases", "Data Modeling"]
+  },
+  {
+    "id": 6,
+    "name": "Fundamentals of Accelerated Computing with CUDA Python",
+    "issuer": "NVIDIA",
+    "date": "2025",
+    "credential_id": "zDMnRFhoTLW1GlGLXCykzA",
+    "url": null,
+    "skills": ["CUDA", "GPU Computing", "Python"]
+  },
+  {
+    "id": 7,
+    "name": "Fundamentals of Deep Learning",
+    "issuer": "NVIDIA",
+    "date": "2025",
+    "credential_id": "1tO0Ys3ITkGJkXM3sgBKrQ",
+    "url": null,
+    "skills": ["Deep Learning", "CNN", "Neural Networks"]
+  },
+  {
+    "id": 8,
+    "name": "Neural Networks and Deep Learning",
+    "issuer": "Coursera (DeepLearning.AI)",
+    "date": "2023",
+    "credential_id": "RAPBVPTPN45W",
+    "url": null,
+    "skills": ["Neural Networks", "TensorFlow", "Keras"]
+  },
+  {
+    "id": 9,
+    "name": "Improving Deep Neural Networks",
+    "issuer": "Coursera (DeepLearning.AI)",
+    "date": "2023",
+    "credential_id": "NQW3577GA87G",
+    "url": null,
+    "skills": ["Hyperparameter Tuning", "Regularization", "Optimization"]
+  },
+  {
+    "id": 10,
+    "name": "Machine Learning",
+    "issuer": "Coursera (Stanford)",
+    "date": "2023",
+    "credential_id": "9ET5NCJ3F25R",
+    "url": null,
+    "skills": ["Machine Learning", "Supervised Learning", "Unsupervised Learning"]
+  }
+]

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anshuman Singh | AI/ML Engineer & Developer</title>
-    <meta name="description" content="Personal portfolio of Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and creator of free educational tools." />
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshuman Singh | AI/ML Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer. Building scalable AI systems, commercial software, and free educational tools.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- ===== NAVBAR ===== -->
     <header class="navbar">
         <div class="container">
-            <a href="#" class="logo">Anshuman<span>Singh</span></a>
+            <a href="index.html" class="logo">Anshuman<span>Singh</span></a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#tools">Free Tools</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#research">Research</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <span></span><span></span><span></span>
@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -41,12 +41,12 @@
                     <h1>Hi, I'm <span class="highlight">Anshuman Singh</span></h1>
                     <p class="tagline">AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
                     <p class="description">
-                        I build scalable AI systems, commercial software, and free educational tools 
-                        to help students navigate their academic journey. Currently pursuing BTech CSE 
+                        I build scalable AI systems, commercial software, and free educational tools
+                        to help students navigate their academic journey. Currently pursuing BTech CSE
                         with a focus on Generative AI, Knowledge Graphs, and Data Science.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#tools" class="btn btn-primary">🚀 Explore Free Tools</a>
+                        <a href="projects.html" class="btn btn-primary">🚀 View My Work</a>
                         <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline">GitHub ↗</a>
                         <a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
                     </div>
@@ -60,118 +60,60 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>👨‍💻 About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        I am a passionate engineer with a unique blend of skills in <strong>Artificial Intelligence</strong>, 
-                        <strong>Full-Stack Development</strong>, and <strong>Physics Research</strong>. 
-                        I love building products that solve real-world problems — from AI-powered learning platforms (StudyAI) 
-                        to commercial Computer-Based Testing systems (CBT Portal) sold to 6+ educational institutions.
-                    </p>
-                    <p>
-                        My mission is to create <strong>high-impact, scalable software</strong> while making quality education 
-                        and career guidance accessible to every student in India through free tools like 
-                        <strong>JOSAA/UPTAC/CUET Seat Predictors</strong>.
-                    </p>
-                    <div class="about-tech">
-                        <span>Python</span><span>Flask</span><span>PyTorch</span><span>LangChain</span>
-                        <span>SQL</span><span>Docker</span><span>Git</span><span>React</span>
-                    </div>
-                    <a href="#tools" class="btn btn-primary">📊 View Free Tools</a>
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight-item">🎓 <strong>IIT Madras</strong> NPTEL DSA Learner</div>
-                    <div class="highlight-item">🧠 <strong>Generative AI</strong> Specialist (RAG, LLMs)</div>
-                    <div class="highlight-item">📄 Published Author: <em>Quantum Ontology of Light</em></div>
-                    <div class="highlight-item">💰 <strong>Commercial Product</strong> sold to 6+ clients</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FREE TOOLS SECTION (MAIN TRAFFIC GENERATOR) ===== -->
-    <section id="tools" class="tools">
-        <div class="container">
-            <h2>🛠️ Free Tools for Students</h2>
-            <p class="section-subtitle">
-                I build these tools to help you navigate college admissions and career planning. 
-                Completely free, no sign-up required!
-            </p>
-            <div class="tools-grid">
-                <!-- Tool 1: UPTAC Predictor -->
-                <div class="tool-card">
-                    <div class="tool-icon">🎯</div>
-                    <h3>UPTAC Seat Predictor</h3>
-                    <p>Predict your chances of getting into top engineering colleges in Uttar Pradesh based on your UPTAC rank and category.</p>
-                    <a href="tools/uptacpredictor/" class="btn btn-secondary">Launch Tool →</a>
-                </div>
-                <!-- Tool 2: JOSAA Predictor (Coming Soon) -->
-                <div class="tool-card coming-soon">
-                    <div class="tool-icon">🏛️</div>
-                    <h3>JOSAA Seat Predictor <span class="badge-soon">Soon</span></h3>
-                    <p>Estimate your admission chances in IITs, NITs, and IIITs based on JEE Main rank and category.</p>
-                    <a href="#" class="btn btn-secondary disabled">Coming Soon</a>
-                </div>
-                <!-- Tool 3: CUET College Finder -->
-                <div class="tool-card coming-soon">
-                    <div class="tool-icon">📚</div>
-                    <h3>CUET College Finder <span class="badge-soon">Soon</span></h3>
-                    <p>Find top central and state universities accepting CUET scores based on your subject combination and percentile.</p>
-                    <a href="#" class="btn btn-secondary disabled">Coming Soon</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PROJECTS SECTION ===== -->
-    <section id="projects" class="projects">
+    <!-- ===== FEATURED PROJECTS (Dynamic) ===== -->
+    <section id="featured" class="featured">
         <div class="container">
             <h2>🏆 Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>🧠 StudyAI</h3>
-                    <p>AI-powered learning platform with real-time chat, visual knowledge mapping, and Stripe/Razorpay payment integration.</p>
-                    <div class="project-tags"><span>Flask</span><span>Gemini API</span><span>LangChain</span></div>
-                    <a href="https://github.com/anshumanhq/StudyAI" target="_blank" class="btn btn-sm btn-outline">View Repo →</a>
-                </div>
-                <div class="project-card">
-                    <h3>🏫 CBT School Portal</h3>
-                    <p>Computer Based Testing system with hardware-locked licensing. Used by 6+ educational institutions for conducting secure exams.</p>
-                    <div class="project-tags"><span>Python</span><span>Flask</span><span>PyInstaller</span></div>
-                    <a href="https://github.com/anshumanhq/CBT-School-Portal" target="_blank" class="btn btn-sm btn-outline">View Repo →</a>
-                </div>
-                <div class="project-card">
-                    <h3>🧠 Serenity AI</h3>
-                    <p>Multimodal neural ecosystem integrating Gemini, FLUX image generation, and real-time web intelligence with a glassmorphic UI.</p>
-                    <div class="project-tags"><span>React</span><span>FastAPI</span><span>HuggingFace</span></div>
-                    <a href="#" class="btn btn-sm btn-outline disabled">Private</a>
-                </div>
+            <p class="section-subtitle">A selection of my most impactful work — from AI platforms to commercial software.</p>
+            <div id="featuredGrid" class="projects-grid">
+                <!-- Dynamically loaded by JS -->
+            </div>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="projects.html" class="btn btn-outline">View All Projects →</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== RESEARCH SECTION ===== -->
-    <section id="research" class="research">
+    <!-- ===== QUICK LINKS ===== -->
+    <section class="quick-links">
         <div class="container">
-            <h2>📄 Research & Publications</h2>
-            <div class="research-card">
-                <h3>The Quantum Ontology of Light: A Critical Review</h3>
-                <p>
-                    An open-access critical review exploring the wave-particle duality of light, 
-                    published on Zenodo (CERN-supported repository). This work reflects my deep 
-                    interest in theoretical physics and philosophy of science.
-                </p>
-                <a href="https://github.com/anshumanhq/quantum-ontology-light" target="_blank" class="btn btn-sm btn-primary">
-                    📖 Read Paper →
+            <div class="quick-grid">
+                <a href="about.html" class="quick-card">
+                    <span class="quick-icon">👨‍💻</span>
+                    <h3>About Me</h3>
+                    <p>Learn about my journey, skills, and vision.</p>
                 </a>
-                <span class="research-badge">Zenodo · CERN</span>
+                <a href="research.html" class="quick-card">
+                    <span class="quick-icon">📄</span>
+                    <h3>Research</h3>
+                    <p>Explore my publications and research interests.</p>
+                </a>
+                <a href="certificates.html" class="quick-card">
+                    <span class="quick-icon">🎓</span>
+                    <h3>Certificates</h3>
+                    <p>View my certifications and continuous learning.</p>
+                </a>
+                <a href="contact.html" class="quick-card">
+                    <span class="quick-icon">📬</span>
+                    <h3>Contact</h3>
+                    <p>Get in touch for collaborations or opportunities.</p>
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- ===== GOOGLE ADSENSE (Small Section) ===== -->
+    <div class="container ad-container">
+        <div class="ad-slot">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2633513915753897"
+                 data-ad-slot="2339071842"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -186,5 +128,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/featured.js"></script>
 </body>
 </html>
