@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="About | Anshuman Singh" path="/about/">
+  <Nav path="/about/" />
+
+  <section class="page-hero">
+    <h1>About Me</h1>
+    <p>AI/ML Engineer · Full-Stack Developer · Physics Researcher</p>
+  </section>
+
+  <section class="section about-content">
+    <h2>👨‍💻 Who I Am</h2>
+    <p>I am a passionate engineer with a unique blend of skills in <strong>Artificial Intelligence</strong>, <strong>Full-Stack Development</strong>, and <strong>Physics Research</strong>. Currently pursuing BTech CSE with a focus on Generative AI, Knowledge Graphs, and Data Science.</p>
+    <p>I love building products that solve real-world problems — from AI-powered learning platforms (StudyAI) to commercial Computer-Based Testing systems (CBT Portal) sold to 6+ educational institutions.</p>
+    <p>My mission is to create <strong>high-impact, scalable software</strong> while making quality education and career guidance accessible to every student in India through free tools like <strong>UPTAC Seat Predictor</strong> and upcoming JOSAA/CUET tools.</p>
+
+    <h2>🎯 What I'm Looking For</h2>
+    <ul class="goal-list">
+      <li>🚀 Full-time AI/ML Engineer roles</li>
+      <li>🧠 Generative AI & RAG Systems development</li>
+      <li>📊 Data Science & Analytics opportunities</li>
+      <li>🤝 Freelance collaborations & open-source contributions</li>
+      <li>🔬 Research-oriented roles (AI + Physics)</li>
+    </ul>
+
+    <div class="center-btn"><a href="/skills/" class="btn btn-primary">See My Skills →</a></div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .about-content { max-width: 780px; }
+  .about-content h2 { font-size: 1.6rem; margin: 40px 0 16px; }
+  .about-content p { color: var(--text-dim); margin-bottom: 14px; }
+  .goal-list li { color: var(--text-dim); padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .center-btn { margin-top: 40px; }
+</style>

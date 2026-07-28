@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import skillGroups from '../data/skills.json';
+---
+<Layout title="Skills | Anshuman Singh" path="/skills/">
+  <Nav path="/skills/" />
+
+  <section class="page-hero">
+    <h1>🛠️ Skills &amp; Technologies</h1>
+    <p>Languages, frameworks, and tools I use to build production software.</p>
+  </section>
+
+  <section class="section">
+    {skillGroups.map(group => (
+      <div class="skill-group">
+        <div class="skill-cat-title"><i class={`fas ${group.icon}`}></i> {group.category}</div>
+        <div class="skills-grid">
+          {group.items.map(item => (
+            <div class="skill-item">
+              <span class="skill-icon"><i class={item.iconClass} style={`color:${item.color}`}></i></span>
+              <span class="skill-name">{item.name} <small>{item.note}</small></span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .skill-group { margin-bottom: 44px; }
+  .skill-cat-title {
+    font-size: 1.05rem; font-weight: 600; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px; color: var(--accent-2);
+  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .skill-item {
+    display: flex; align-items: center; gap: 12px; padding: 16px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .skill-item:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .skill-icon { font-size: 1.4rem; width: 32px; text-align: center; }
+  .skill-name { font-weight: 500; font-size: 0.92rem; display: flex; flex-direction: column; }
+  .skill-name small { color: var(--text-dim); font-weight: 400; font-size: 0.75rem; }
+</style>

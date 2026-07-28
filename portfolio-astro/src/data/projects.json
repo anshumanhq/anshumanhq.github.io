@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "UPTAC Seat Predictor",
+    "description": "Free web tool for UPTAC aspirants to predict college and branch chances using 3 years of official cutoff data. No sign-up required.",
+    "tech": ["Python", "JavaScript", "JSON", "HTML/CSS"],
+    "github": "https://github.com/anshumanhq/anshumanhq.github.io/tree/main/tools/uptacpredictor",
+    "live": "tools/uptacpredictor/",
+    "image": "/data/image/projects/uptac.jpg",
+    "category": "Utility",
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 2,
+    "title": "StudyAI",
+    "description": "AI-powered learning platform with real-time chat, visual knowledge mapping, and Stripe/Razorpay payment integration.",
+    "tech": ["Flask", "Gemini API", "LangChain", "Stripe"],
+    "github": "https://github.com/anshumanhq/StudyAI",
+    "live": null,
+    "image": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&h=350&fit=crop&auto=format",
+    "category": "AI",
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 3,
+    "title": "CBT School Portal",
+    "description": "Computer Based Testing system with hardware-locked licensing, admin dashboard, student client, and automated result processing. Sold to 6+ educational institutions.",
+    "tech": ["Python", "Flask", "PyInstaller", "SQLite"],
+    "github": "https://github.com/anshumanhq/CBT-School-Portal",
+    "live": null,
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=350&fit=crop&auto=format",
+    "category": "Web App",
+    "featured": true,
+    "commercial": true
+  },
+  {
+    "id": 4,
+    "title": "Serenity AI",
+    "description": "Multimodal neural ecosystem integrating Gemini, FLUX image generation, and real-time web intelligence with a glassmorphic UI.",
+    "tech": ["React", "FastAPI", "HuggingFace", "Gemini API"],
+    "github": "https://github.com/anshuman365/serenity-ai",
+    "live": "https://serenity-ai-techexpert.onrender.com/",
+    "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=350&fit=crop&auto=format",
+    "category": "AI",
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 5,
+    "title": "PyFusion Framework",
+    "description": "All-in-one Python framework with built-in web server, database manager, HTTP client, and utilities. Published on PyPI.",
+    "tech": ["Python", "Flask", "SQLite", "Open Source"],
+    "github": "https://github.com/anshuman365/pyfusion",
+    "live": null,
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=350&fit=crop&auto=format",
+    "category": "Framework",
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 6,
+    "title": "SecureKit Library",
+    "description": "Enterprise-grade cryptography library with Argon2id hashing, ChaCha20-Poly1305 encryption, and integrations for Flask, Django, FastAPI.",
+    "tech": ["Security", "Cryptography", "Python", "PyPI"],
+    "github": "https://github.com/anshuman365/securekit",
+    "live": null,
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=350&fit=crop&auto=format",
+    "category": "Framework",
+    "featured": true,
+    "commercial": false
+  },
+  {
+    "id": 7,
+    "title": "Hotel Royal Orchid",
+    "description": "Complete hotel booking & management platform with Razorpay integration, dynamic dashboard, and responsive UI.",
+    "tech": ["Flask", "Razorpay", "Bootstrap", "Full Stack"],
+    "github": "https://github.com/anshuman365/hotel-royal-orchid-management",
+    "live": "https://hotel-royal-orchid.onrender.com",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=350&fit=crop&auto=format",
+    "category": "Web App",
+    "featured": false,
+    "commercial": false
+  },
+  {
+    "id": 8,
+    "title": "InvoiceGen",
+    "description": "Professional invoice generator with client management, multi-currency support, and PDF export capabilities.",
+    "tech": ["Flask", "JavaScript", "PDF Generation", "REST API"],
+    "github": "https://github.com/anshuman365/invoice-generator",
+    "live": "https://invoice-generating-application.onrender.com",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=350&fit=crop&auto=format",
+    "category": "Utility",
+    "featured": false,
+    "commercial": false
+  },
+  {
+    "id": 9,
+    "title": "Water Park Management",
+    "description": "Complete water park booking system with ticket management, food ordering, and Razorpay payment integration.",
+    "tech": ["Flask", "Razorpay", "Bootstrap 5", "QR Codes"],
+    "github": "https://github.com/anshuman365/Water-park-project",
+    "live": "https://anshuman2waterpark.pythonanywhere.com",
+    "image": "https://images.unsplash.com/photo-1582192730841-2a682d7375f9?w=600&h=350&fit=crop&auto=format",
+    "category": "Web App",
+    "featured": false,
+    "commercial": false
+  },
+  {
+    "id": 10,
+    "title": "Personal Bank Demo",
+    "description": "Responsive banking template showcasing modern UI/UX design for financial applications with clean interface and intuitive user experience.",
+    "tech": ["HTML/CSS", "JavaScript", "Responsive", "UI/UX"],
+    "github": "https://github.com/personalbanks/personalbanks.github.io",
+    "live": "https://personalbanks.github.io/",
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=350&fit=crop&auto=format",
+    "category": "Utility",
+    "featured": false,
+    "commercial": false
+  }
+]

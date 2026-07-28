@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact | Anshuman Singh" path="/contact/">
+  <Nav path="/contact/" />
+
+  <section class="page-hero">
+    <h1>📬 Get In Touch</h1>
+    <p>Have a question, collaboration idea, or opportunity? Reach out!</p>
+  </section>
+
+  <section class="section contact-grid">
+    <div class="contact-info">
+      <h2>Connect With Me</h2>
+      <ul>
+        <li><strong>📧 Email:</strong> <a href="mailto:anshumansingh3697@gmail.com">anshumansingh3697@gmail.com</a></li>
+        <li><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/anshuman-singh-662183303/" target="_blank">linkedin.com/in/anshuman-singh</a></li>
+        <li><strong>🐙 GitHub:</strong> <a href="https://github.com/anshumanhq" target="_blank">github.com/anshumanhq</a></li>
+        <li><strong>📝 ORCID:</strong> <a href="https://orcid.org/0009-0004-7999-768X" target="_blank">0009-0004-7999-768X</a></li>
+      </ul>
+      <p class="note">I'm always open to discussing new opportunities, research collaborations, or just connecting with fellow developers and researchers.</p>
+    </div>
+
+    <div class="card contact-form-card">
+      <form action="https://formspree.io/f/xaqrdown" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; align-items: start; }
+  .contact-info h2 { font-size: 1.6rem; margin-bottom: 20px; }
+  .contact-info ul li { margin-bottom: 16px; color: var(--text-dim); }
+  .contact-info ul li a { color: var(--accent-2); }
+  .note { margin-top: 20px; color: var(--text-dim); font-size: 0.92rem; }
+  .contact-form-card { padding: 32px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; margin-bottom: 8px; font-size: 0.88rem; color: var(--text-dim); }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text); font-family: inherit; font-size: 0.92rem;
+  }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

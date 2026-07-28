@@ -1,0 +1,59 @@
+---
+const { path = "/" } = Astro.props;
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About" },
+  { href: "/skills/", label: "Skills" },
+  { href: "/projects/", label: "Projects" },
+  { href: "/research/", label: "Research" },
+  { href: "/contact/", label: "Contact" },
+];
+---
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo heading-font">Anshuman<span class="gradient-text">Singh</span></a>
+    <nav class="links">
+      {links.map(l => (
+        <a href={l.href} class={path === l.href ? "active" : ""}>{l.label}</a>
+      ))}
+    </nav>
+    <a href="/contact/" class="btn btn-primary nav-cta">Hire Me</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    {links.map(l => <a href={l.href}>{l.label}</a>)}
+    <a href="/contact/" class="btn btn-primary">Hire Me</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(6,7,13,0.75); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.35rem; font-weight: 700; }
+  .links { display: flex; gap: 30px; }
+  .links a { color: var(--text-dim); font-weight: 500; font-size: 0.94rem; transition: color 0.2s; }
+  .links a:hover, .links a.active { color: var(--text); }
+  .nav-cta { padding: 10px 22px; font-size: 0.85rem; }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+  .burger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 18px; padding: 24px;
+    background: var(--bg-soft); border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  @media (max-width: 900px) {
+    .links, .nav-cta { display: none; }
+    .burger { display: flex; }
+  }
+</style>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger?.addEventListener('click', () => menu?.classList.toggle('open'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>

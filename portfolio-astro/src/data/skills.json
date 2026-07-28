@@ -1,0 +1,53 @@
+[
+  {
+    "category": "Languages",
+    "icon": "fa-code",
+    "items": [
+      { "name": "Python", "note": "Primary", "color": "#3776AB", "iconClass": "fab fa-python" },
+      { "name": "SQL", "note": "PostgreSQL, MySQL", "color": "#00758F", "iconClass": "fas fa-database" },
+      { "name": "JavaScript", "note": "ES6+", "color": "#F7DF1E", "iconClass": "fab fa-js" },
+      { "name": "HTML/CSS", "note": "Responsive", "color": "#E34F26", "iconClass": "fab fa-html5" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "icon": "fa-server",
+    "items": [
+      { "name": "Flask", "note": "Full-Stack", "color": "#000000", "iconClass": "fas fa-flask" },
+      { "name": "FastAPI", "note": "Async", "color": "#009485", "iconClass": "fas fa-bolt" },
+      { "name": "REST APIs", "note": "Design", "color": "#FF6C37", "iconClass": "fas fa-plug" }
+    ]
+  },
+  {
+    "category": "Data & Databases",
+    "icon": "fa-database",
+    "items": [
+      { "name": "PostgreSQL", "note": "Advanced", "color": "#336791", "iconClass": "fas fa-database" },
+      { "name": "SQLite", "note": "Embedded", "color": "#003B57", "iconClass": "fas fa-database" },
+      { "name": "Qdrant", "note": "Vector DB", "color": "#4A90D9", "iconClass": "fas fa-vector-square" },
+      { "name": "Neo4j", "note": "Graph DB", "color": "#4A90D9", "iconClass": "fas fa-project-diagram" }
+    ]
+  },
+  {
+    "category": "DevOps & Cloud",
+    "icon": "fa-cloud",
+    "items": [
+      { "name": "Docker", "note": "Containers", "color": "#2496ED", "iconClass": "fab fa-docker" },
+      { "name": "Git", "note": "Version Control", "color": "#F05032", "iconClass": "fab fa-git-alt" },
+      { "name": "GitHub Actions", "note": "CI/CD", "color": "#181717", "iconClass": "fab fa-github" },
+      { "name": "AWS S3", "note": "Storage", "color": "#FF9900", "iconClass": "fab fa-aws" },
+      { "name": "Cloudflare", "note": "CDN & Tunnel", "color": "#F38020", "iconClass": "fas fa-cloud" }
+    ]
+  },
+  {
+    "category": "Other Tools",
+    "icon": "fa-tools",
+    "items": [
+      { "name": "Stripe", "note": "Payments", "color": "#6772E5", "iconClass": "fas fa-credit-card" },
+      { "name": "Razorpay", "note": "Payments", "color": "#0D2B3E", "iconClass": "fas fa-credit-card" },
+      { "name": "PyInstaller", "note": "EXE Build", "color": "#4B32C3", "iconClass": "fas fa-box" },
+      { "name": "Tkinter", "note": "Desktop GUI", "color": "#0D2B3E", "iconClass": "fas fa-window-maximize" },
+      { "name": "React", "note": "Frontend", "color": "#61DAFB", "iconClass": "fab fa-react" }
+    ]
+  }
+]

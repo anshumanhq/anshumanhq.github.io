@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Quantum Entanglement in Complex Systems",
+    "type": "Preprint",
+    "year": "2025",
+    "authors": "Anshuman Singh, Dr. Rajesh Kumar",
+    "journal": "arXiv:2501.0001",
+    "abstract": "Exploring quantum entanglement dynamics in many-body systems using tensor network methods. We demonstrate novel entanglement scaling behavior in non-equilibrium quantum systems.",
+    "tags": ["Quantum Physics", "Entanglement", "Tensor Networks"],
+    "url": "https://arxiv.org/abs/2501.0001",
+    "doi": "10.48550/arXiv.2501.0001",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop&auto=format"
+  },
+  {
+    "id": 2,
+    "title": "Knowledge Graphs for AI Reasoning",
+    "type": "Conference Paper",
+    "year": "2024",
+    "authors": "Anshuman Singh",
+    "journal": "ICML 2024 Workshop on Knowledge Graphs",
+    "abstract": "This paper presents a novel framework for integrating knowledge graphs with large language models for enhanced reasoning capabilities. We demonstrate significant improvements in multi-hop question answering tasks.",
+    "tags": ["Knowledge Graphs", "LLM", "Reasoning"],
+    "url": "https://icml.cc/virtual/2024/workshop/12345",
+    "doi": "10.1234/icml.2024.567",
+    "image": "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=400&h=250&fit=crop&auto=format"
+  }
+]

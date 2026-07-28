@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Google Data Analytics Professional Certificate",
+    "issuer": "Google",
+    "date": "2024",
+    "credential_id": "ABC123456",
+    "url": "https://coursera.org/verify/professional-cert/abc123",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop&auto=format",
+    "skills": ["Data Analysis", "SQL", "R", "Tableau"]
+  },
+  {
+    "id": 2,
+    "title": "Deep Learning Specialization",
+    "issuer": "deeplearning.ai",
+    "date": "2024",
+    "credential_id": "DL789012",
+    "url": "https://coursera.org/verify/specialization/dl789",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=250&fit=crop&auto=format",
+    "skills": ["Neural Networks", "CNN", "RNN", "TensorFlow"]
+  }
+]

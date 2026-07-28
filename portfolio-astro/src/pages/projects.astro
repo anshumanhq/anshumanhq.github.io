@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projects from '../data/projects.json';
+---
+<Layout title="Projects | Anshuman Singh - 60+ Projects Built" path="/projects/">
+  <Nav path="/projects/" />
+
+  <section class="page-hero">
+    <h1>🏆 Projects</h1>
+    <p>A showcase of my work — from AI platforms to commercial software and free educational tools.</p>
+  </section>
+
+  <div class="container ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2633513915753897" data-ad-slot="2339071842" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <section class="section">
+    <div class="projects-grid">
+      {projects.map(p => <ProjectCard p={p} />)}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .ad-container { padding: 30px 24px 0; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+</style>
