@@ -1,0 +1,71 @@
+﻿---
+const links = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+---
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo heading-font">Alti<span class="gradient-text">von</span></a>
+    <nav class="links">
+      {links.map(l => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    {links.map(l => <a href={l.href}>{l.label}</a>)}
+    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(5,6,10,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { font-size: 1.4rem; font-weight: 700; }
+  .links { display: flex; gap: 32px; }
+  .links a { color: var(--text-dim); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+  .links a:hover { color: var(--text); }
+  .nav-cta { padding: 10px 22px; font-size: 0.85rem; }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+  .burger span { width: 22px; height: 2px; background: var(--text); }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+
+  @media (max-width: 860px) {
+    .links, .nav-cta { display: none; }
+    .burger { display: flex; }
+  }
+</style>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger?.addEventListener('click', () => menu?.classList.toggle('open'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>

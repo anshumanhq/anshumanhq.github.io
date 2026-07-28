@@ -1,0 +1,61 @@
+﻿<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Building since 2023 · India</div>
+    <h1 class="heading-font hero-title">
+      We craft <span class="gradient-text">digital products</span><br />
+      that actually ship.
+    </h1>
+    <p class="hero-sub">
+      Altivon Holdings — a web development studio led by Anshuman, self-taught developer
+      with 60+ shipped projects. From client websites to AI systems, we build fast and build right.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="#contact" class="btn btn-ghost">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>60+</strong><span>Projects Shipped</span></div>
+      <div><strong>2</strong><span>PyPI Libraries</span></div>
+      <div><strong>2023</strong><span>Started Coding</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 24px 80px;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    z-index: 0;
+  }
+  .orb1 { width: 420px; height: 420px; background: var(--accent); top: -100px; right: -80px; }
+  .orb2 { width: 340px; height: 340px; background: var(--accent-2); bottom: -60px; left: -60px; }
+
+  .hero-content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; text-align: center; }
+  .hero-title { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+  .hero-sub { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 36px; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stats div { display: flex; flex-direction: column; gap: 4px; }
+  .hero-stats strong { font-size: 1.8rem; font-family: 'Space Grotesk', sans-serif; }
+  .hero-stats span { font-size: 0.85rem; color: var(--text-dim); }
+</style>
