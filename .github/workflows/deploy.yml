@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Deploy Astro Site to GitHub Pages
 
 on:
@@ -14,13 +13,14 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # 👇 Environment variable for Astro
     env:
       ASTRO_TELEMETRY_DISABLED: 1
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: false   # ✅ यहाँ बदलाव किया है
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,12 +28,10 @@ jobs:
           node-version: '20'
 
       - name: Install and Build Astro
-        # 👇 'portfolio-astro' folder में जाएँ, install करें, build करें
         run: |
           cd portfolio-astro
           npm install
           npm run build
-        # 👇 अगर build fail होता है, तो भी workflow continue रहेगा
         continue-on-error: true
 
       - name: Check if build succeeded
@@ -48,18 +46,14 @@ jobs:
       - name: Prepare deployment (Astro build)
         if: steps.check_build.outputs.build_success == 'true'
         run: |
-          # पुरानी static files को हटाएँ (सिर्फ root level की .html/.xml/.txt etc.)
           find . -maxdepth 1 -type f \( -name "*.html" -o -name "*.xml" -o -name "*.txt" \) -delete
-          # dist से सारी files root में copy करें
           cp -r portfolio-astro/dist/* .
-          # अगर कोई index.html root में है तो उसे रखें (Astro build से आएगा)
           echo "✅ Astro build deployed to root."
 
       - name: Skip deployment (build failed - keep old site)
         if: steps.check_build.outputs.build_success == 'false'
         run: |
           echo "⚠️ Astro build failed. Keeping existing static site as fallback."
-          # पुरानी site को नहीं हटाएँगे—यह पहले से ही root में मौजूद है
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
