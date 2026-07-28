@@ -1,5 +1,5 @@
 ﻿# ================================================================
-# 🚀 Premium Astro Portfolio Generator
+# 🚀 Premium Astro Portfolio Generator (BOM-free)
 # Anshuman's Portfolio — Altivon Holdings
 # Creates all files & folders automatically.
 # Run this from the folder where you want the project.
@@ -24,14 +24,15 @@ foreach ($folder in $folders) {
     New-Item -Path $folder -ItemType Directory -Force | Out-Null
 }
 
-# ----- Helper function to write files -----
+# ----- Helper function to write files (BOM-free UTF-8) -----
 function Write-File {
     param(
         [string]$relativePath,
         [string]$content
     )
     $fullPath = Join-Path (Get-Location) $relativePath
-    $content | Set-Content -Path $fullPath -Encoding utf8 -Force
+    # Use .NET method to write UTF-8 without BOM
+    [System.IO.File]::WriteAllText($fullPath, $content, (New-Object System.Text.UTF8Encoding $false))
     Write-Host "✅ Created: $relativePath"
 }
 
