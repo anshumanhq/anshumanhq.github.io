@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import certificates from '../data/certificates.json';
+
+const allSkills = [...new Set(certificates.flatMap(c => c.skills))].join(", ");
+
+const seo = {
+  title: "Certificates & Certifications | Anshuman Singh - NPTEL, NVIDIA, Neo4j",
+  description: `Certifications earned by Anshuman Singh from NPTEL (IIT Madras), NVIDIA, Neo4j GraphAcademy, freeCodeCamp & Coursera covering ${allSkills}.`,
+  keywords: `Anshuman Singh certificates, NPTEL certification, NVIDIA deep learning certificate, Neo4j GraphAcademy, freeCodeCamp certified, Coursera DeepLearning.AI, ${allSkills}`,
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Certificates earned by Anshuman Singh",
+    "url": "https://anshumanhq.github.io/certificates/",
+    "itemListElement": certificates.map((c, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "EducationalOccupationalCredential",
+        "name": c.name,
+        "credentialCategory": "certificate",
+        "recognizedBy": { "@type": "Organization", "name": c.issuer },
+        "dateCreated": String(c.date)
+      }
+    }))
+  }
+};
+---
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/certificates/">
+  <Nav path="/certificates/" />
+
+  <section class="page-hero">
+    <h1>🎓 Certificates</h1>
+    <p>Continuous learning across AI, data science, and graph technologies.</p>
+  </section>
+
+  <section class="section">
+    <div class="cert-grid">
+      {certificates.map(c => (
+        <div class="card cert-card">
+          <div class="cert-image">
+            <img src={c.image} alt={`${c.name} certificate`} loading="lazy" />
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">{c.issuer} · {c.date}</span>
+            <h3>{c.name}</h3>
+            <div class="cert-skills">
+              {c.skills.map(s => <span>{s}</span>)}
+            </div>
+            {c.credential_id && <p class="cred-id">Credential ID: {c.credential_id}</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .cert-card { overflow: hidden; display: flex; flex-direction: column; }
+  .cert-image {
+    aspect-ratio: 16/9; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    background: var(--bg-soft); padding: 20px;
+  }
+  .cert-image img { width: 100%; height: 100%; object-fit: contain; }
+  .cert-body { padding: 22px; }
+  .cert-issuer { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-2); font-weight: 600; }
+  .cert-body h3 { font-size: 1.08rem; margin: 10px 0 12px; line-height: 1.35; }
+  .cert-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .cert-skills span { font-size: 0.72rem; padding: 4px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; color: var(--text-dim); }
+  .cred-id { color: var(--text-dim); font-size: 0.78rem; word-break: break-all; }
+</style>

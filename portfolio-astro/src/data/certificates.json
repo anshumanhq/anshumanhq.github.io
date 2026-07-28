@@ -1,22 +1,65 @@
 [
   {
     "id": 1,
-    "title": "Google Data Analytics Professional Certificate",
-    "issuer": "Google",
-    "date": "2024",
-    "credential_id": "ABC123456",
-    "url": "https://coursera.org/verify/professional-cert/abc123",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop&auto=format",
-    "skills": ["Data Analysis", "SQL", "R", "Tableau"]
+    "name": "NPTEL: The Joy of Computing Using Python",
+    "issuer": "NPTEL (IIT Madras)",
+    "date": "2025",
+    "credential_id": "NPTEL-PYTHON-1234",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Python", "Programming Fundamentals", "Problem Solving"]
   },
   {
     "id": 2,
-    "title": "Deep Learning Specialization",
-    "issuer": "deeplearning.ai",
+    "name": "NVIDIA Deep Learning Certificate",
+    "issuer": "NVIDIA",
+    "date": "2025",
+    "credential_id": "NVIDIA-DL-5678",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Deep Learning", "Neural Networks", "CUDA"]
+  },
+  {
+    "id": 3,
+    "name": "Neo4j GraphAcademy: Graph Data Science",
+    "issuer": "Neo4j GraphAcademy",
+    "date": "2025",
+    "credential_id": "NEO4J-GDS-9012",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Graph Data Science", "Neo4j", "Cypher"]
+  },
+  {
+    "id": 4,
+    "name": "freeCodeCamp: Data Visualization",
+    "issuer": "freeCodeCamp",
     "date": "2024",
-    "credential_id": "DL789012",
-    "url": "https://coursera.org/verify/specialization/dl789",
-    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=250&fit=crop&auto=format",
-    "skills": ["Neural Networks", "CNN", "RNN", "TensorFlow"]
+    "credential_id": "FCC-DV-3456",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Data Visualization", "D3.js", "JavaScript"]
+  },
+  {
+    "id": 5,
+    "name": "Coursera: Machine Learning by Andrew Ng",
+    "issuer": "Coursera (Stanford)",
+    "date": "2024",
+    "credential_id": "Coursera-ML-7890",
+    "image": "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Machine Learning", "Linear Algebra", "Python"]
+  },
+  {
+    "id": 6,
+    "name": "DeepLearning.AI: Generative AI with LLMs",
+    "issuer": "DeepLearning.AI",
+    "date": "2025",
+    "credential_id": "DLAI-GENAI-1112",
+    "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Generative AI", "LLMs", "LangChain"]
+  },
+  {
+    "id": 7,
+    "name": "Google Cloud: Big Data & ML",
+    "issuer": "Google Cloud",
+    "date": "2024",
+    "credential_id": "GC-BDML-1314",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop&auto=format",
+    "skills": ["Big Data", "Google Cloud", "Machine Learning"]
   }
 ]
