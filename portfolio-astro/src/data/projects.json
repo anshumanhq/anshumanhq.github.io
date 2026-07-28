@@ -6,7 +6,7 @@
     "tech": ["Python", "JavaScript", "JSON", "HTML/CSS"],
     "github": "https://github.com/anshumanhq/anshumanhq.github.io/tree/main/tools/uptacpredictor",
     "live": "tools/uptacpredictor/",
-    "image": "/data/image/projects/uptac.jpg",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28PpZ-C5OGOpz9eS-ykaislzZ1DQHzDF479hKZvuqWw&s=10",
     "category": "Utility",
     "featured": true,
     "commercial": false
