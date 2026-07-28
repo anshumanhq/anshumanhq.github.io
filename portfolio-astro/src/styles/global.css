@@ -1,0 +1,31 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.6);
+    --text: #0f172a;
+  }
+  .dark {
+    --bg: #0b1120;
+    --card-bg: rgba(15, 23, 42, 0.6);
+    --text: #e2e8f0;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .dark .glass {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent;
+  }
+}
