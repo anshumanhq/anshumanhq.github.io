@@ -1,3 +1,4 @@
+cat > src/components/Nav.astro << 'EOF'
 ---
 const { path = "/" } = Astro.props;
 const links = [
@@ -8,6 +9,7 @@ const links = [
   { href: "/research/", label: "Research" },
   { href: "/certificates/", label: "Certificates" },
   { href: "/contact/", label: "Contact" },
+  { href: "https://anshumanblogs.github.io", label: "Blog", external: true },
 ];
 ---
 <header class="nav">
@@ -15,14 +17,27 @@ const links = [
     <a href="/" class="logo heading-font">Anshuman<span class="gradient-text">Singh</span></a>
     <nav class="links">
       {links.map(l => (
-        <a href={l.href} class={path === l.href ? "active" : ""}>{l.label}</a>
+        <a
+          href={l.href}
+          class={path === l.href ? "active" : ""}
+          {l.external && `target="_blank" rel="noopener noreferrer"`}
+        >
+          {l.label}
+        </a>
       ))}
     </nav>
     <a href="/contact/" class="btn btn-primary nav-cta">Hire Me</a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    {links.map(l => <a href={l.href}>{l.label}</a>)}
+    {links.map(l => (
+      <a
+        href={l.href}
+        {l.external && `target="_blank" rel="noopener noreferrer"`}
+      >
+        {l.label}
+      </a>
+    ))}
     <a href="/contact/" class="btn btn-primary">Hire Me</a>
   </div>
 </header>
@@ -58,3 +73,4 @@ const links = [
   burger?.addEventListener('click', () => menu?.classList.toggle('open'));
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 </script>
+EOF
