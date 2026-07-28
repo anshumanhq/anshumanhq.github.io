@@ -27,7 +27,7 @@ const defaultSchema = {
 <head>
   <meta charset="UTF-8" />
 
-  <!-- ===== Google Analytics (GA4) — loads first, on every page ===== -->
+  <!-- ===== Google Analytics (GA4) ===== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X0M6RM0F6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,6 +52,12 @@ const defaultSchema = {
   <link rel="sitemap" href="/sitemap-index.xml" />
   <meta name="theme-color" content="#06070d" />
 
+  <!-- ===== FAVICON (UPDATED with .ico) ===== -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- Optional: Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+
   <!-- ===== Open Graph ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Anshuman Singh Portfolio" />
@@ -71,17 +77,16 @@ const defaultSchema = {
 
   <meta name="google-adsense-account" content="ca-pub-2633513915753897" />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2633513915753897" crossorigin="anonymous"></script>
 
-  <!-- ===== Structured Data (per-page override) ===== -->
+  <!-- ===== Structured Data ===== -->
   <script type="application/ld+json" set:html={JSON.stringify(schema ?? defaultSchema)} />
 
-  <!-- ===== Breadcrumb schema (auto, based on path) ===== -->
+  <!-- ===== Breadcrumb schema ===== -->
   {path !== "/" && (
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
