@@ -1,28 +1,41 @@
 [
   {
     "id": 1,
-    "title": "Quantum Entanglement in Complex Systems",
+    "title": "Orbital Observation and Robotic Surface Interaction Strategy for 433 Eros: A Theoretical Feasibility Study",
     "type": "Preprint",
-    "year": "2025",
-    "authors": "Anshuman Singh, Dr. Rajesh Kumar",
-    "journal": "arXiv:2501.0001",
-    "abstract": "Exploring quantum entanglement dynamics in many-body systems using tensor network methods. We demonstrate novel entanglement scaling behavior in non-equilibrium quantum systems.",
-    "tags": ["Quantum Physics", "Entanglement", "Tensor Networks"],
-    "url": "https://arxiv.org/abs/2501.0001",
-    "doi": "10.48550/arXiv.2501.0001",
-    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop&auto=format"
+    "year": "2026",
+    "authors": "Anshuman Singh, Victor Jose Canavece",
+    "journal": "Zenodo",
+    "abstract": "This preprint presents a theoretical feasibility study of a dual-mode mission architecture for near-Earth asteroid 433 Eros, combining low-altitude science orbit with robotic surface anchoring. We analyze orbital stability under perturbations, evaluate delta-v requirements, and model regolith penetration, concluding that a controlled frozen orbit with surface anchoring is theoretically viable.",
+    "tags": ["Astrodynamics", "Orbital Mechanics", "Planetary Science", "Near-Earth Asteroids"],
+    "url": "https://doi.org/10.5281/zenodo.18730267",
+    "doi": "10.5281/zenodo.18730267",
+    "image": "https://share.google/KT7bgQIPTMbqlKAPV"
   },
   {
     "id": 2,
-    "title": "Knowledge Graphs for AI Reasoning",
+    "title": "The Quantum Ontology of Light: A Critical Review",
     "type": "Conference Paper",
-    "year": "2024",
+    "year": "2026",
     "authors": "Anshuman Singh",
-    "journal": "ICML 2024 Workshop on Knowledge Graphs",
-    "abstract": "This paper presents a novel framework for integrating knowledge graphs with large language models for enhanced reasoning capabilities. We demonstrate significant improvements in multi-hop question answering tasks.",
-    "tags": ["Knowledge Graphs", "LLM", "Reasoning"],
-    "url": "https://icml.cc/virtual/2024/workshop/12345",
-    "doi": "10.1234/icml.2024.567",
-    "image": "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=400&h=250&fit=crop&auto=format"
+    "journal": "Journal of Physics: Conference Series",
+    "abstract": "This comprehensive review resolves the wave-particle duality of light within quantum electrodynamics, presenting the photon as an excitation of the quantized electromagnetic field. We provide a complete synthesis of light's quantum ontology, including simulations of key quantum optics phenomena.",
+    "tags": ["Quantum Physics", "Quantum Electrodynamics", "Quantum Optics", "Wave-Particle Duality"],
+    "url": "https://doi.org/10.5281/zenodo.18296477",
+    "doi": "10.5281/zenodo.18296477",
+    "image": "https://share.google/JaAMR5ej6F81E8UVz"
+  },
+  {
+    "id": 3,
+    "title": "Mapping the Global Academic Funnel: A Data-Driven Analysis of Student Progression, Attrition, and Associated Costs",
+    "type": "Preprint",
+    "year": "2026",
+    "authors": "Anshuman Singh",
+    "journal": "Zenodo",
+    "abstract": "This study presents a data-driven model of the global academic funnel, tracking 1,000 students from secondary education to academic scientist. We find extreme attrition (0.7% survival) and quantify costs, highlighting systemic inefficiencies and inequality.",
+    "tags": ["Education", "Higher Education", "Academic Attrition", "Education Economics"],
+    "url": "https://doi.org/10.5281/zenodo.18222992",
+    "doi": "10.5281/zenodo.18222992",
+    "image": "https://share.google/d06qaqpWTtbmxwE1J"
   }
 ]
