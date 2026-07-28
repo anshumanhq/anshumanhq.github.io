@@ -2,8 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const seo = {
+  title: "Contact Anshuman Singh | Hire AI/ML Engineer & Full-Stack Developer",
+  description: "Get in touch with Anshuman Singh for AI/ML engineering roles, full-stack development projects, freelance collaboration, or research partnerships.",
+  keywords: "contact Anshuman Singh, hire AI engineer, hire Flask developer, freelance Python developer India, collaborate AI ML, Anshuman Singh email",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Anshuman Singh",
+    "url": "https://anshumanhq.github.io/contact/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Anshuman Singh",
+      "email": "anshumansingh3697@gmail.com",
+      "sameAs": ["https://github.com/anshumanhq", "https://www.linkedin.com/in/anshuman-singh-662183303/"]
+    }
+  }
+};
 ---
-<Layout title="Contact | Anshuman Singh" path="/contact/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/contact/">
   <Nav path="/contact/" />
 
   <section class="page-hero">

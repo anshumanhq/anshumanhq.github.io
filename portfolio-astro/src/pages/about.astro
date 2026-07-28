@@ -2,8 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const seo = {
+  title: "About Anshuman Singh | AI/ML Engineer & Full-Stack Developer Bio",
+  description: "Learn about Anshuman Singh — BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher. 60+ projects built, 6+ clients served, focused on Generative AI and Knowledge Graphs.",
+  keywords: "about Anshuman Singh, Anshuman Singh bio, AI engineer background, ML engineer India, Python Flask developer story, BTech CSE student developer, physics researcher AI",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Anshuman Singh",
+    "url": "https://anshumanhq.github.io/about/",
+    "description": "Learn about Anshuman Singh - BTech CSE student, AI/ML Engineer, Full-Stack Developer, and Physics researcher.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Anshuman Singh",
+      "jobTitle": ["AI/ML Engineer", "Full-Stack Developer", "Physics Researcher"],
+      "url": "https://anshumanhq.github.io/",
+      "sameAs": ["https://github.com/anshumanhq", "https://www.linkedin.com/in/anshuman-singh-662183303/"]
+    }
+  }
+};
 ---
-<Layout title="About | Anshuman Singh" path="/about/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/about/">
   <Nav path="/about/" />
 
   <section class="page-hero">

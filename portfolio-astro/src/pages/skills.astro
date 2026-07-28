@@ -3,8 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import skillGroups from '../data/skills.json';
+
+const allSkillNames = skillGroups.flatMap(g => g.items.map(i => i.name)).join(", ");
+
+const seo = {
+  title: "Skills & Tech Stack | Anshuman Singh - Python, Flask, AI/ML, DevOps",
+  description: `Anshuman Singh's technical skills: ${allSkillNames}. Full-stack development, AI/ML engineering, cloud & DevOps expertise.`,
+  keywords: `Anshuman Singh skills, Python developer skills, Flask expert, ${allSkillNames}, full stack tech stack, AI ML skills India`,
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Anshuman Singh's Technical Skills",
+    "url": "https://anshumanhq.github.io/skills/",
+    "itemListElement": skillGroups.flatMap(g => g.items).map((item, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": item.name
+    }))
+  }
+};
 ---
-<Layout title="Skills | Anshuman Singh" path="/skills/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/skills/">
   <Nav path="/skills/" />
 
   <section class="page-hero">

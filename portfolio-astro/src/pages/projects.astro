@@ -4,8 +4,29 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import projects from '../data/projects.json';
+
+const seo = {
+  title: "Projects by Anshuman Singh | 60+ AI, Flask & Full-Stack Builds",
+  description: "Explore 60+ projects by Anshuman Singh including AI platforms (StudyAI, Serenity AI), commercial software (CBT Portal), and open-source PyPI libraries (PyFusion, SecureKit).",
+  keywords: "Anshuman Singh projects, AI projects portfolio, Flask projects, Python projects GitHub, StudyAI, CBT school portal, Serenity AI, PyFusion, SecureKit, UPTAC predictor, open source Python developer",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects by Anshuman Singh",
+    "url": "https://anshumanhq.github.io/projects/",
+    "description": "Collection of 60+ projects built with Python, Flask, AI integration, and modern web technologies.",
+    "author": { "@type": "Person", "name": "Anshuman Singh" },
+    "numberOfItems": projects.length,
+    "hasPart": projects.map(p => ({
+      "@type": "CreativeWork",
+      "name": p.title,
+      "description": p.description,
+      "url": p.live || p.github
+    }))
+  }
+};
 ---
-<Layout title="Projects | Anshuman Singh - 60+ Projects Built" path="/projects/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/projects/">
   <Nav path="/projects/" />
 
   <section class="page-hero">

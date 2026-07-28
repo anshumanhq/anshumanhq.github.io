@@ -3,8 +3,28 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import research from '../data/research.json';
+
+const seo = {
+  title: "Research & Publications | Anshuman Singh - Physics & AI",
+  description: "Independent research and publications by Anshuman Singh at the intersection of theoretical physics and artificial intelligence, including work published via Zenodo (CERN).",
+  keywords: "Anshuman Singh research, physics research papers, quantum physics review, Zenodo CERN publication, AI physics researcher India, independent researcher physics",
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Research by Anshuman Singh",
+    "url": "https://anshumanhq.github.io/research/",
+    "hasPart": research.map(r => ({
+      "@type": "ScholarlyArticle",
+      "headline": r.title,
+      "author": { "@type": "Person", "name": r.authors },
+      "datePublished": String(r.year),
+      "url": r.url,
+      "abstract": r.abstract
+    }))
+  }
+};
 ---
-<Layout title="Research | Anshuman Singh" path="/research/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} schema={seo.schema} path="/research/">
   <Nav path="/research/" />
 
   <section class="page-hero">

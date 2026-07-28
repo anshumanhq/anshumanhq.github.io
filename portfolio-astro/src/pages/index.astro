@@ -6,8 +6,14 @@ import ProjectCard from '../components/ProjectCard.astro';
 import projects from '../data/projects.json';
 
 const featured = projects.filter(p => p.featured).slice(0, 6);
+
+const seo = {
+  title: "Anshuman Singh | AI/ML Engineer, Full-Stack Developer & Physics Researcher",
+  description: "Anshuman Singh — BTech CSE student building scalable AI systems, commercial software, and free EdTech tools. 60+ projects including StudyAI, CBT Portal & UPTAC Seat Predictor. Available for AI/ML & full-stack roles.",
+  keywords: "Anshuman Singh, Anshuman Singh AI engineer, Anshuman Singh portfolio, AI ML engineer India, Flask developer India, Python developer BTech, generative AI developer, StudyAI, UPTAC seat predictor, CBT school portal, knowledge graph developer, LangChain developer, hire AI engineer India",
+};
 ---
-<Layout path="/">
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} path="/">
   <Nav path="/" />
 
   <section class="hero">
