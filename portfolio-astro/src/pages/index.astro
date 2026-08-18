@@ -6,7 +6,104 @@ import ProjectCard from '../components/ProjectCard.astro';
 import projects from '../data/projects.json';
 import certificates from '../data/certificates.json';
 
-// Get latest 3 certificates (sorted by date descending, newest first)
+// ===== Fetch GitHub Data =====
+const githubUsername = 'anshumanhq';
+let userData = { name: '', bio: '', public_repos: 0, followers: 0, following: 0, totalStars: 0 };
+let contributionsData = [];
+let languageCounts = {};
+let streakData = { currentStreak: 0, longestStreak: 0 };
+let fetchError = false;
+
+try {
+  // 1. Fetch user info
+  const userRes = await fetch(`https://api.github.com/users/${githubUsername}`);
+  if (userRes.ok) {
+    const userJson = await userRes.json();
+    userData = {
+      name: userJson.name || userJson.login,
+      bio: userJson.bio || '',
+      public_repos: userJson.public_repos || 0,
+      followers: userJson.followers || 0,
+      following: userJson.following || 0,
+      totalStars: 0,
+    };
+    // Get total stars from repos (paginated)
+    let page = 1;
+    let repos = [];
+    while (true) {
+      const reposRes = await fetch(`https://api.github.com/users/${githubUsername}/repos?per_page=100&page=${page}`);
+      if (!reposRes.ok) break;
+      const reposJson = await reposRes.json();
+      if (reposJson.length === 0) break;
+      repos = repos.concat(reposJson);
+      page++;
+      if (repos.length >= 1000) break; // safety limit
+    }
+    userData.totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+
+    // 2. Fetch top languages
+    const langCount = {};
+    repos.forEach(repo => {
+      if (repo.language) {
+        langCount[repo.language] = (langCount[repo.language] || 0) + 1;
+      }
+    });
+    // Sort by count descending and take top 6
+    languageCounts = Object.fromEntries(
+      Object.entries(langCount)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 6)
+    );
+  } else {
+    fetchError = true;
+  }
+
+  // 3. Fetch contributions (heatmap) from external API
+  const contribRes = await fetch(`https://github-contributions-api.jogruber.de/v4/${githubUsername}`);
+  if (contribRes.ok) {
+    const contribJson = await contribRes.json();
+    // contribJson structure: { contributions: [{date, count, color, ...}] }
+    if (contribJson.contributions) {
+      contributionsData = contribJson.contributions;
+      // Calculate streak
+      let currentStreak = 0;
+      let longestStreak = 0;
+      let streak = 0;
+      // contributions are sorted by date (oldest first?) The API returns array from earliest to latest.
+      // We'll iterate from latest to earliest to find streak.
+      const sorted = [...contributionsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+      for (const day of sorted) {
+        if (day.count > 0) {
+          streak++;
+          if (streak > longestStreak) longestStreak = streak;
+        } else {
+          if (streak > 0) {
+            // current streak is the streak ending today
+            // Since we're iterating backwards from today, the first streak we break is the current streak.
+            if (currentStreak === 0) {
+              currentStreak = streak;
+            }
+            streak = 0;
+          } else {
+            // still no streak
+            streak = 0;
+          }
+        }
+      }
+      // If we went through all days and never broke, currentStreak is the total streak length
+      if (currentStreak === 0 && streak > 0) currentStreak = streak;
+      streakData = { currentStreak, longestStreak };
+    }
+  } else {
+    // contributions API might fail, fallback to dummy data
+    contributionsData = [];
+  }
+} catch (e) {
+  fetchError = true;
+  console.error('GitHub fetch error:', e);
+}
+
+// ===== Get recent certificates =====
 const recentCerts = certificates
   .sort((a, b) => {
     const dateA = parseInt(a.date);
@@ -17,6 +114,7 @@ const recentCerts = certificates
 
 const featured = projects.filter(p => p.featured).slice(0, 6);
 
+// ===== SEO =====
 const seo = {
   title: "Anshuman Singh | AI/ML Engineer, Full-Stack Developer & Physics Researcher",
   description: "Anshuman Singh — BTech CSE student building scalable AI systems, commercial software, and free EdTech tools. 60+ projects including StudyAI, CBT Portal & UPTAC Seat Predictor. Available for AI/ML & full-stack roles.",
@@ -57,7 +155,7 @@ const seo = {
     </div>
   </section>
 
-  <!-- ===== Coding Stats Section (LeetCode + HackerRank) ===== -->
+  <!-- ===== Coding Stats: LeetCode + HackerRank ===== -->
   <section class="section coding-stats">
     <div class="eyebrow">Coding Stats</div>
     <h2 class="heading-font">LeetCode &amp; <span class="gradient-text">HackerRank</span></h2>
@@ -81,7 +179,7 @@ const seo = {
         </div>
       </div>
 
-      <!-- HackerRank Badge (with actual icons) -->
+      <!-- HackerRank Card -->
       <div class="card stat-box hackerrank-box">
         <div class="stat-box-header">
           <img src="https://avatars.githubusercontent.com/u/7596827?v=4" alt="HackerRank" width="64" height="64" />
@@ -103,7 +201,6 @@ const seo = {
               <span class="star filled">★</span>
             </div>
           </div>
-          <!-- You can add more badges here -->
         </div>
         <div class="stat-box-cta">
           <a href="https://www.hackerrank.com/anshumansingh361" target="_blank" class="btn btn-outline btn-sm">View Profile →</a>
@@ -112,61 +209,123 @@ const seo = {
     </div>
   </section>
 
-  <!-- ===== NEW: GitHub Stats Section ===== -->
+  <!-- ===== GitHub Stats (Manually Fetched) ===== -->
   <section class="section github-stats">
     <div class="eyebrow">GitHub Analytics</div>
     <h2 class="heading-font">Open Source <span class="gradient-text">Activity</span></h2>
+
     <div class="github-grid">
-      <!-- General Stats Card -->
-      <div class="card stat-box github-box">
+      <!-- User Stats Card -->
+      <div class="card stat-box github-box user-stats-box">
         <div class="stat-box-header">
           <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
-          <span class="stat-box-title">GitHub Stats</span>
+          <span class="stat-box-title">User Stats</span>
         </div>
-        <a href="https://github.com/anshumanhq" target="_blank">
-          <img
-            src="https://github-readme-stats.vercel.app/api?username=anshumanhq&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117"
-            alt="GitHub Stats"
-            class="github-card-img"
-            loading="lazy"
-          />
-        </a>
+        {fetchError ? (
+          <p class="stat-error">Unable to fetch live stats. <a href="https://github.com/anshumanhq" target="_blank">View Profile →</a></p>
+        ) : (
+          <>
+            <div class="user-detail">
+              <div class="user-avatar">
+                <img src="https://avatars.githubusercontent.com/u/97746533?v=4" alt="Avatar" width="80" height="80" />
+              </div>
+              <div class="user-info">
+                <h3>{userData.name}</h3>
+                <p>{userData.bio}</p>
+              </div>
+            </div>
+            <div class="user-stats-grid">
+              <div class="mini-stat">
+                <span class="mini-stat-num">{userData.public_repos}</span>
+                <span class="mini-stat-label">Repos</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-num">{userData.totalStars}</span>
+                <span class="mini-stat-label">Stars</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-num">{userData.followers}</span>
+                <span class="mini-stat-label">Followers</span>
+              </div>
+              <div class="mini-stat">
+                <span class="mini-stat-num">{userData.following}</span>
+                <span class="mini-stat-label">Following</span>
+              </div>
+            </div>
+          </>
+        )}
         <div class="stat-box-cta">
           <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline btn-sm">View Profile →</a>
         </div>
       </div>
 
-      <!-- Top Languages & Streak Card -->
-      <div class="card stat-box github-box">
+      <!-- Contributions & Heatmap Card -->
+      <div class="card stat-box github-box heatmap-box">
         <div class="stat-box-header">
           <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
-          <span class="stat-box-title">Languages & Streak</span>
+          <span class="stat-box-title">Contributions</span>
         </div>
-        <div class="github-sub-grid">
-          <a href="https://github.com/anshumanhq" target="_blank">
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=anshumanhq&layout=compact&theme=radical&hide_border=true&bg_color=0d1117"
-              alt="Top Languages"
-              class="github-card-img"
-              loading="lazy"
-            />
-          </a>
-          <a href="https://github.com/anshumanhq" target="_blank">
-            <img
-              src="https://github-readme-streak-stats.herokuapp.com/?user=anshumanhq&theme=radical&hide_border=true&background=0d1117"
-              alt="Streak Stats"
-              class="github-card-img"
-              loading="lazy"
-            />
-          </a>
-        </div>
+        {contributionsData.length > 0 ? (
+          <>
+            <div class="streak-stats">
+              <div class="streak-item">
+                <span class="streak-num">{streakData.currentStreak}</span>
+                <span>Current Streak</span>
+              </div>
+              <div class="streak-item">
+                <span class="streak-num">{streakData.longestStreak}</span>
+                <span>Longest Streak</span>
+              </div>
+            </div>
+            <div class="heatmap-container">
+              {contributionsData.slice(-365).map((day, index) => {
+                // Determine color intensity based on count
+                let color = '#161b22'; // base (no contributions)
+                if (day.count > 0) {
+                  if (day.count < 3) color = '#0e4429';
+                  else if (day.count < 6) color = '#006d32';
+                  else if (day.count < 10) color = '#26a641';
+                  else color = '#39d353';
+                }
+                return (
+                  <div
+                    class="heatmap-cell"
+                    style={{ backgroundColor: color }}
+                    title={`${day.date}: ${day.count} contributions`}
+                    key={day.date}
+                  />
+                );
+              })}
+            </div>
+            <p class="heatmap-label">Last 365 days</p>
+          </>
+        ) : (
+          <p class="stat-error">Unable to load contributions. <a href="https://github.com/anshumanhq" target="_blank">View GitHub</a></p>
+        )}
         <div class="stat-box-cta">
           <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline btn-sm">View GitHub →</a>
         </div>
       </div>
     </div>
+
+    <!-- Top Languages (from fetched data) -->
+    <div class="top-languages">
+      <h3 class="heading-font" style="font-size:1.2rem; text-align:center; margin-top:40px;">
+        Top <span class="gradient-text">Languages</span>
+      </h3>
+      <div class="lang-tags">
+        {Object.keys(languageCounts).length > 0 ? (
+          Object.entries(languageCounts).map(([lang, count]) => (
+            <span key={lang} class="lang-tag">{lang} ({count} repos)</span>
+          ))
+        ) : (
+          <span class="lang-tag">No languages detected</span>
+        )}
+      </div>
+    </div>
   </section>
 
+  <!-- ===== Featured Projects ===== -->
   <section class="section">
     <div class="eyebrow">Featured Work</div>
     <h2 class="heading-font">Projects that <span class="gradient-text">ship & scale</span></h2>
@@ -176,7 +335,7 @@ const seo = {
     <div class="center-btn"><a href="/projects/" class="btn btn-outline">View All Projects →</a></div>
   </section>
 
-  <!-- Recent Certificates -->
+  <!-- ===== Recent Certificates ===== -->
   <section class="section cert-preview">
     <div class="eyebrow">Recent Certificates</div>
     <h2 class="heading-font">Continuous <span class="gradient-text">Learning & Growth</span></h2>
@@ -196,6 +355,7 @@ const seo = {
     <div class="center-btn"><a href="/certificates/" class="btn btn-outline">View All Certificates →</a></div>
   </section>
 
+  <!-- ===== Quick Links ===== -->
   <section class="quick-links-section">
     <div class="container quick-grid">
       <a href="/about/" class="quick-card"><span class="quick-icon">👨‍💻</span><h3>About Me</h3><p>My journey, mission, and vision.</p></a>
@@ -320,7 +480,6 @@ const seo = {
   .badge-stars .star.filled {
     color: #f5c842;
   }
-
   .stat-box-cta {
     margin-top: 8px;
   }
@@ -338,24 +497,125 @@ const seo = {
   .github-box {
     padding: 24px 20px;
   }
-  .github-card-img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-  }
-  .github-card-img:hover {
-    transform: scale(1.02);
-  }
-  .github-sub-grid {
+  .user-detail {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
     align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
   }
-  .github-sub-grid img {
-    max-width: 320px;
+  .user-avatar img {
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+  }
+  .user-info h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .user-info p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 4px 0 0;
+  }
+  .user-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 12px 0;
+  }
+  .mini-stat {
+    text-align: center;
+    background: var(--bg-soft);
+    padding: 8px 4px;
+    border-radius: var(--radius-sm);
+  }
+  .mini-stat-num {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk';
+    color: var(--accent-2);
+  }
+  .mini-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Streak and Heatmap */
+  .streak-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 12px 0;
+  }
+  .streak-item {
+    text-align: center;
+  }
+  .streak-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk';
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .streak-item span:last-child {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  .heatmap-container {
+    display: grid;
+    grid-template-columns: repeat(52, 1fr);
+    gap: 3px;
+    margin: 12px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 4px;
+  }
+  .heatmap-cell {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    min-width: 8px;
+    min-height: 8px;
+    background-color: #161b22;
+    transition: transform 0.1s;
+    cursor: default;
+  }
+  .heatmap-cell:hover {
+    transform: scale(1.4);
+    z-index: 2;
+  }
+  .heatmap-label {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .top-languages {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .lang-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .lang-tag {
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-dim);
   }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 44px; }
@@ -430,9 +690,12 @@ const seo = {
     .cert-preview-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     .stats-grid { grid-template-columns: 1fr; }
     .github-grid { grid-template-columns: 1fr; }
+    .user-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .heatmap-container { grid-template-columns: repeat(26, 1fr); }
   }
   @media (max-width: 560px) {
     .quick-grid { grid-template-columns: 1fr; }
     .cert-preview-grid { grid-template-columns: 1fr 1fr; }
+    .heatmap-container { grid-template-columns: repeat(13, 1fr); }
   }
 </style>
