@@ -57,7 +57,7 @@ const seo = {
     </div>
   </section>
 
-  <!-- ===== Coding Stats Section (with static badges) ===== -->
+  <!-- ===== Coding Stats Section (LeetCode + HackerRank) ===== -->
   <section class="section coding-stats">
     <div class="eyebrow">Coding Stats</div>
     <h2 class="heading-font">LeetCode &amp; <span class="gradient-text">HackerRank</span></h2>
@@ -103,24 +103,65 @@ const seo = {
               <span class="star filled">★</span>
             </div>
           </div>
-          <!-- Add more badges here if needed, following the same pattern -->
-          <!-- Example: Problem Solving -->
-          <!--
-          <div class="badge-item">
-            <img src="https://hrcdn.net/fcore/assets/badges/problem-solving-ad82806295.svg" alt="Problem Solving" class="badge-icon-img" loading="lazy" />
-            <span class="badge-label">Problem Solving</span>
-            <div class="badge-stars">
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star filled">★</span>
-              <span class="star">★</span>
-            </div>
-          </div>
-          -->
+          <!-- You can add more badges here -->
         </div>
         <div class="stat-box-cta">
           <a href="https://www.hackerrank.com/anshumansingh361" target="_blank" class="btn btn-outline btn-sm">View Profile →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEW: GitHub Stats Section ===== -->
+  <section class="section github-stats">
+    <div class="eyebrow">GitHub Analytics</div>
+    <h2 class="heading-font">Open Source <span class="gradient-text">Activity</span></h2>
+    <div class="github-grid">
+      <!-- General Stats Card -->
+      <div class="card stat-box github-box">
+        <div class="stat-box-header">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
+          <span class="stat-box-title">GitHub Stats</span>
+        </div>
+        <a href="https://github.com/anshumanhq" target="_blank">
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=anshumanhq&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117"
+            alt="GitHub Stats"
+            class="github-card-img"
+            loading="lazy"
+          />
+        </a>
+        <div class="stat-box-cta">
+          <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline btn-sm">View Profile →</a>
+        </div>
+      </div>
+
+      <!-- Top Languages & Streak Card -->
+      <div class="card stat-box github-box">
+        <div class="stat-box-header">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
+          <span class="stat-box-title">Languages & Streak</span>
+        </div>
+        <div class="github-sub-grid">
+          <a href="https://github.com/anshumanhq" target="_blank">
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=anshumanhq&layout=compact&theme=radical&hide_border=true&bg_color=0d1117"
+              alt="Top Languages"
+              class="github-card-img"
+              loading="lazy"
+            />
+          </a>
+          <a href="https://github.com/anshumanhq" target="_blank">
+            <img
+              src="https://github-readme-streak-stats.herokuapp.com/?user=anshumanhq&theme=radical&hide_border=true&background=0d1117"
+              alt="Streak Stats"
+              class="github-card-img"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="stat-box-cta">
+          <a href="https://github.com/anshumanhq" target="_blank" class="btn btn-outline btn-sm">View GitHub →</a>
         </div>
       </div>
     </div>
@@ -285,6 +326,38 @@ const seo = {
   }
   .btn-sm { padding: 9px 16px; font-size: 0.82rem; }
 
+  /* ===== GitHub Stats Section ===== */
+  .github-stats .heading-font { margin-bottom: 44px; }
+  .github-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .github-box {
+    padding: 24px 20px;
+  }
+  .github-card-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+  .github-card-img:hover {
+    transform: scale(1.02);
+  }
+  .github-sub-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  .github-sub-grid img {
+    max-width: 320px;
+  }
+
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 44px; }
   .center-btn { text-align: center; margin-top: 40px; }
 
@@ -356,6 +429,7 @@ const seo = {
     .quick-grid { grid-template-columns: 1fr 1fr; }
     .cert-preview-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     .stats-grid { grid-template-columns: 1fr; }
+    .github-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .quick-grid { grid-template-columns: 1fr; }
