@@ -62,15 +62,15 @@ try {
   const contribRes = await fetch(`https://github-contributions-api.jogruber.de/v4/${githubUsername}`);
   if (contribRes.ok) {
     const contribJson = await contribRes.json();
-    // contribJson structure: { contributions: [{date, count, color, ...}] }
     if (contribJson.contributions) {
-      contributionsData = contribJson.contributions;
-      // Calculate streak
+      // Filter to only show contributions from 2026 onwards
+      const startDate = new Date('2026-01-01');
+      contributionsData = contribJson.contributions.filter(day => new Date(day.date) >= startDate);
+
+      // Calculate streak using filtered data
       let currentStreak = 0;
       let longestStreak = 0;
       let streak = 0;
-      // contributions are sorted by date (oldest first?) The API returns array from earliest to latest.
-      // We'll iterate from latest to earliest to find streak.
       const sorted = [...contributionsData].sort((a, b) => new Date(b.date) - new Date(a.date));
       for (const day of sorted) {
         if (day.count > 0) {
@@ -78,24 +78,19 @@ try {
           if (streak > longestStreak) longestStreak = streak;
         } else {
           if (streak > 0) {
-            // current streak is the streak ending today
-            // Since we're iterating backwards from today, the first streak we break is the current streak.
             if (currentStreak === 0) {
               currentStreak = streak;
             }
             streak = 0;
           } else {
-            // still no streak
             streak = 0;
           }
         }
       }
-      // If we went through all days and never broke, currentStreak is the total streak length
       if (currentStreak === 0 && streak > 0) currentStreak = streak;
       streakData = { currentStreak, longestStreak };
     }
   } else {
-    // contributions API might fail, fallback to dummy data
     contributionsData = [];
   }
 } catch (e) {
@@ -227,7 +222,7 @@ const seo = {
           <>
             <div class="user-detail">
               <div class="user-avatar">
-                <img src="https://avatars.githubusercontent.com/u/97746533?v=4" alt="Avatar" width="80" height="80" />
+                <img src="https://avatars.githubusercontent.com/u/193123264?v=4" alt="Avatar" width="80" height="80" />
               </div>
               <div class="user-info">
                 <h3>{userData.name}</h3>
@@ -279,7 +274,6 @@ const seo = {
             </div>
             <div class="heatmap-container">
               {contributionsData.slice(-365).map((day, index) => {
-                // Determine color intensity based on count
                 let color = '#161b22'; // base (no contributions)
                 if (day.count > 0) {
                   if (day.count < 3) color = '#0e4429';
@@ -297,7 +291,7 @@ const seo = {
                 );
               })}
             </div>
-            <p class="heatmap-label">Last 365 days</p>
+            <p class="heatmap-label">Last 365 days (from 2026)</p>
           </>
         ) : (
           <p class="stat-error">Unable to load contributions. <a href="https://github.com/anshumanhq" target="_blank">View GitHub</a></p>
@@ -496,6 +490,10 @@ const seo = {
   }
   .github-box {
     padding: 24px 20px;
+    height: 100%; /* Ensure both boxes stretch to same height */
+    min-height: 300px; /* Give them a base height */
+    display: flex;
+    flex-direction: column;
   }
   .user-detail {
     display: flex;
