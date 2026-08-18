@@ -65,7 +65,7 @@ const seo = {
       <!-- LeetCode Card -->
       <div class="card stat-box leetcode-box">
         <div class="stat-box-header">
-          <img src="https://leetcode.com/_next/static/images/logo-dark-c96c407d175e36c81e236fcfdd682a0b.png" alt="LeetCode" width="64" height="64" />
+          <img src="https://iconlogovector.com/uploads/images/2025/06/lg-685660bc962f7-LeetCode.webp" alt="LeetCode" width="32" height="32" />
           <span class="stat-box-title">LeetCode</span>
         </div>
         <a href="https://leetcode.com/Anshuman__Singh__/" target="_blank">
@@ -81,22 +81,48 @@ const seo = {
         </div>
       </div>
 
-     <div class="hackerrank-badge">
-  <div class="badge-container" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-    <!-- Python Badge Item -->
-    <div class="badge-item" style="text-align: center;">
-      <img src="https://hrcdn.net/fcore/assets/badges/python-f70befd824.svg" width="50" alt="Python">
-      <p style="font-size: 12px; margin: 5px 0;">Python (4★)</p>
-    </div>
-    
-    <!-- Problem Solving Item -->
-    <div class="badge-item" style="text-align: center;">
-      <img src="https://hrcdn.net/fcore/assets/badges/problem-solving-ad82806295.svg" width="50" alt="Problem Solving">
-      <p style="font-size: 12px; margin: 5px 0;">Problem Solving</p>
-    </div>
-  </div>
-</div>
-
+      <!-- HackerRank Badge (with actual icons) -->
+      <div class="card stat-box hackerrank-box">
+        <div class="stat-box-header">
+          <img src="https://avatars.githubusercontent.com/u/7596827?v=4" alt="HackerRank" width="32" height="32" />
+          <span class="stat-box-title">HackerRank</span>
+        </div>
+        <div class="hackerrank-badges">
+          <div class="badge-item">
+            <img
+              src="https://hrcdn.net/fcore/assets/badges/python-f70befd824.svg"
+              alt="Python Badge"
+              class="badge-icon-img"
+              loading="lazy"
+            />
+            <span class="badge-label">Python</span>
+            <div class="badge-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+            </div>
+          </div>
+          <!-- Add more badges here if needed, following the same pattern -->
+          <!-- Example: Problem Solving -->
+          <!--
+          <div class="badge-item">
+            <img src="https://hrcdn.net/fcore/assets/badges/problem-solving-ad82806295.svg" alt="Problem Solving" class="badge-icon-img" loading="lazy" />
+            <span class="badge-label">Problem Solving</span>
+            <div class="badge-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star">★</span>
+            </div>
+          </div>
+          -->
+        </div>
+        <div class="stat-box-cta">
+          <a href="https://www.hackerrank.com/anshumansingh361" target="_blank" class="btn btn-outline btn-sm">View Profile →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -218,16 +244,42 @@ const seo = {
   .leetcode-card-img:hover {
     transform: scale(1.02);
   }
-  .hackerrank-img {
-    width: 100%;
-    max-width: 280px;
-    border-radius: 6px;
+  .hackerrank-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 10px 0;
   }
-  .stat-label {
+  .badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .badge-icon-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  .badge-label {
+    font-size: 0.85rem;
+    font-weight: 500;
     color: var(--text-dim);
-    font-size: 0.9rem;
-    margin: 4px 0 0;
   }
+  .badge-stars {
+    display: flex;
+    gap: 2px;
+  }
+  .badge-stars .star {
+    font-size: 0.9rem;
+    color: #555;
+    transition: color 0.2s;
+  }
+  .badge-stars .star.filled {
+    color: #f5c842;
+  }
+
   .stat-box-cta {
     margin-top: 8px;
   }
