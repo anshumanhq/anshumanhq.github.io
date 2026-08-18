@@ -102,8 +102,8 @@ const recentCerts = certificates
 
 const featured = projects.filter(p => p.featured).slice(0, 6);
 
-// ===== Build 6‑month heatmap (180 days) =====
-function buildHeatmapWeeks(contributions, daysToShow = 180) {
+// ===== Build 1‑year heatmap (365 days) =====
+function buildHeatmapWeeks(contributions, daysToShow = 365) {
     const today = new Date();
     const startDate = new Date(today);
     startDate.setDate(startDate.getDate() - daysToShow + 1);
@@ -141,7 +141,7 @@ function buildHeatmapWeeks(contributions, daysToShow = 180) {
     return weeks;
 }
 
-const heatmapWeeks = buildHeatmapWeeks(contributionsData, 180); // 6 months
+const heatmapWeeks = buildHeatmapWeeks(contributionsData, 365); // Full year
 
 // ===== SEO =====
 const seo = {
@@ -236,7 +236,7 @@ const seo = {
         </div>
     </section>
 
-    <!-- ===== GitHub Stats (FIXED) ===== -->
+    <!-- ===== GitHub Stats ===== -->
     <section class="section github-stats">
         <div class="eyebrow">GitHub Analytics</div>
         <h2 class="heading-font">Open Source <span class="gradient-text">Activity</span></h2>
@@ -323,7 +323,7 @@ const seo = {
                             </div>
                         ))}
                     </div>
-                    <p class="heatmap-footnote">Last 6 months · {contributionsData.reduce((s, d) => s + d.count, 0)} total
+                    <p class="heatmap-footnote">Last 12 months · {contributionsData.reduce((s, d) => s + d.count, 0)} total
                     contributions</p>
                 </div>
 
@@ -587,12 +587,11 @@ const seo = {
         font-size: 0.82rem;
     }
 
-    /* ===== GitHub Stats — FIXED ===== */
+    /* ===== GitHub Stats ===== */
     .github-stats .heading-font {
         margin-bottom: 44px;
     }
 
-    /* ---- Profile Card ---- */
     .github-profile-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -663,7 +662,6 @@ const seo = {
         margin-left: auto;
     }
 
-    /* ---- Heatmap Card ---- */
     .github-heatmap-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -937,7 +935,6 @@ const seo = {
             grid-template-columns: 1fr;
         }
 
-        /* GitHub fixes for tablet */
         .profile-row {
             flex-direction: column;
             align-items: center;
