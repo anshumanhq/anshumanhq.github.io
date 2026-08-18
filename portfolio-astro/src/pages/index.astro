@@ -37,7 +37,7 @@ try {
       if (reposJson.length === 0) break;
       repos = repos.concat(reposJson);
       page++;
-      if (repos.length >= 1000) break; // safety limit
+      if (repos.length >= 1000) break;
     }
     userData.totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
 
@@ -48,7 +48,6 @@ try {
         langCount[repo.language] = (langCount[repo.language] || 0) + 1;
       }
     });
-    // Sort by count descending and take top 6
     languageCounts = Object.fromEntries(
       Object.entries(langCount)
         .sort((a, b) => b[1] - a[1])
@@ -108,6 +107,51 @@ const recentCerts = certificates
   .slice(0, 4);
 
 const featured = projects.filter(p => p.featured).slice(0, 6);
+
+// ===== Helper: Build week-based heatmap (like GitHub) =====
+function buildHeatmapWeeks(contributions, daysToShow = 365) {
+  const today = new Date();
+  const startDate = new Date(today);
+  startDate.setDate(startDate.getDate() - daysToShow + 1);
+
+  // Create a map of date -> count
+  const contribMap = {};
+  contributions.forEach(day => {
+    const d = new Date(day.date);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    contribMap[key] = day.count;
+  });
+
+  // Generate weeks: each week is an array of 7 days (Mon-Sun)
+  const weeks = [];
+  const current = new Date(startDate);
+  // Adjust to start on Monday
+  const dayOfWeek = current.getDay(); // 0=Sun, 1=Mon, ...
+  const diff = (dayOfWeek === 0 ? 6 : dayOfWeek - 1);
+  current.setDate(current.getDate() - diff);
+
+  while (current <= today) {
+    const week = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(current);
+      const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+      week.push({
+        date: d,
+        count: contribMap[key] || 0,
+        key: key,
+      });
+      current.setDate(current.getDate() + 1);
+    }
+    weeks.push(week);
+    // Check if we've gone past today
+    if (current > today) break;
+  }
+
+  return weeks;
+}
+
+// Build heatmap weeks
+const heatmapWeeks = buildHeatmapWeeks(contributionsData, 365);
 
 // ===== SEO =====
 const seo = {
@@ -254,13 +298,13 @@ const seo = {
         </div>
       </div>
 
-      <!-- Contributions & Heatmap Card -->
+      <!-- Contributions & Heatmap Card (Vertical Layout) -->
       <div class="card stat-box github-box heatmap-box">
         <div class="stat-box-header">
           <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
           <span class="stat-box-title">Contributions</span>
         </div>
-        {contributionsData.length > 0 ? (
+        {heatmapWeeks.length > 0 ? (
           <>
             <div class="streak-stats">
               <div class="streak-item">
@@ -272,26 +316,56 @@ const seo = {
                 <span>Longest Streak</span>
               </div>
             </div>
-            <div class="heatmap-container">
-              {contributionsData.slice(-365).map((day, index) => {
-                let color = '#161b22'; // base (no contributions)
-                if (day.count > 0) {
-                  if (day.count < 3) color = '#0e4429';
-                  else if (day.count < 6) color = '#006d32';
-                  else if (day.count < 10) color = '#26a641';
-                  else color = '#39d353';
-                }
-                return (
-                  <div
-                    class="heatmap-cell"
-                    style={{ backgroundColor: color }}
-                    title={`${day.date}: ${day.count} contributions`}
-                    key={day.date}
-                  />
-                );
-              })}
+            <div class="heatmap-wrapper">
+              <div class="heatmap-grid">
+                {heatmapWeeks.map((week, weekIdx) => (
+                  <div class="heatmap-week" key={weekIdx}>
+                    {week.map((day, dayIdx) => {
+                      let color = '#161b22';
+                      if (day.count > 0) {
+                        if (day.count < 3) color = '#0e4429';
+                        else if (day.count < 6) color = '#006d32';
+                        else if (day.count < 10) color = '#26a641';
+                        else color = '#39d353';
+                      }
+                      // Check if this is today or future
+                      const isFuture = day.date > new Date();
+                      return (
+                        <div
+                          class="heatmap-cell"
+                          style={{
+                            backgroundColor: isFuture ? '#161b22' : color,
+                            opacity: isFuture ? 0.3 : 1,
+                          }}
+                          title={isFuture ? 'Future' : `${day.key}: ${day.count} contributions`}
+                          key={day.key}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+              <div class="heatmap-labels">
+                <div class="day-labels">
+                  <span>Mon</span>
+                  <span>Wed</span>
+                  <span>Fri</span>
+                  <span>Sun</span>
+                </div>
+                <div class="month-labels">
+                  {/* Monthly labels based on the first day of each month */}
+                  {heatmapWeeks.map((week, idx) => {
+                    const firstDay = week[0].date;
+                    if (firstDay.getDate() <= 7 && idx % 4 === 0) {
+                      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                      return <span key={idx} class="month-label">{monthNames[firstDay.getMonth()]}</span>;
+                    }
+                    return <span key={idx} class="month-label empty" />;
+                  })}
+                </div>
+              </div>
             </div>
-            <p class="heatmap-label">Last 365 days (from 2026)</p>
+            <p class="heatmap-label">Last 365 days — contributions since 2026</p>
           </>
         ) : (
           <p class="stat-error">Unable to load contributions. <a href="https://github.com/anshumanhq" target="_blank">View GitHub</a></p>
@@ -490,8 +564,8 @@ const seo = {
   }
   .github-box {
     padding: 24px 20px;
-    height: 100%; /* Ensure both boxes stretch to same height */
-    min-height: 300px; /* Give them a base height */
+    height: 100%;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
   }
@@ -566,34 +640,77 @@ const seo = {
     color: var(--text-dim);
   }
 
-  .heatmap-container {
-    display: grid;
-    grid-template-columns: repeat(52, 1fr);
-    gap: 3px;
-    margin: 12px 0;
+  .heatmap-wrapper {
     width: 100%;
-    max-width: 100%;
     overflow-x: auto;
-    padding: 4px;
+    padding: 4px 0;
+  }
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14px, 1fr));
+    gap: 3px;
+    width: 100%;
+    min-width: 720px;
+  }
+  .heatmap-week {
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 3px;
   }
   .heatmap-cell {
     aspect-ratio: 1;
     border-radius: 2px;
-    min-width: 8px;
-    min-height: 8px;
+    min-width: 10px;
+    min-height: 10px;
     background-color: #161b22;
     transition: transform 0.1s;
     cursor: default;
   }
   .heatmap-cell:hover {
-    transform: scale(1.4);
+    transform: scale(1.5);
     z-index: 2;
   }
+
+  .heatmap-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+  }
+  .day-labels {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 4px;
+    align-items: center;
+    padding-left: 4px;
+  }
+  .day-labels span {
+    padding: 2px 0;
+    text-align: left;
+  }
+  .month-labels {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 4px;
+    align-items: center;
+  }
+  .month-label {
+    padding: 2px 4px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-align: left;
+  }
+  .month-label.empty {
+    visibility: hidden;
+  }
+
   .heatmap-label {
     font-size: 0.75rem;
     color: var(--text-dim);
     text-align: center;
-    margin-top: 4px;
+    margin-top: 8px;
   }
 
   .top-languages {
@@ -689,11 +806,14 @@ const seo = {
     .stats-grid { grid-template-columns: 1fr; }
     .github-grid { grid-template-columns: 1fr; }
     .user-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .heatmap-container { grid-template-columns: repeat(26, 1fr); }
+    .heatmap-grid { min-width: 500px; }
+    .heatmap-grid { grid-template-columns: repeat(auto-fill, minmax(12px, 1fr)); }
   }
   @media (max-width: 560px) {
     .quick-grid { grid-template-columns: 1fr; }
     .cert-preview-grid { grid-template-columns: 1fr 1fr; }
-    .heatmap-container { grid-template-columns: repeat(13, 1fr); }
+    .heatmap-grid { min-width: 360px; }
+    .heatmap-grid { grid-template-columns: repeat(auto-fill, minmax(10px, 1fr)); }
+    .heatmap-cell { min-width: 8px; min-height: 8px; }
   }
 </style>
