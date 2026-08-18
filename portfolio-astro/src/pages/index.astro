@@ -15,7 +15,6 @@ let streakData = { currentStreak: 0, longestStreak: 0 };
 let fetchError = false;
 
 try {
-  // 1. Fetch user info
   const userRes = await fetch(`https://api.github.com/users/${githubUsername}`);
   if (userRes.ok) {
     const userJson = await userRes.json();
@@ -27,7 +26,6 @@ try {
       following: userJson.following || 0,
       totalStars: 0,
     };
-    // Get total stars from repos (paginated)
     let page = 1;
     let repos = [];
     while (true) {
@@ -41,7 +39,6 @@ try {
     }
     userData.totalStars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
 
-    // 2. Fetch top languages
     const langCount = {};
     repos.forEach(repo => {
       if (repo.language) {
@@ -57,16 +54,13 @@ try {
     fetchError = true;
   }
 
-  // 3. Fetch contributions (heatmap) from external API
   const contribRes = await fetch(`https://github-contributions-api.jogruber.de/v4/${githubUsername}`);
   if (contribRes.ok) {
     const contribJson = await contribRes.json();
     if (contribJson.contributions) {
-      // Filter to only show contributions from 2026 onwards
       const startDate = new Date('2026-01-01');
       contributionsData = contribJson.contributions.filter(day => new Date(day.date) >= startDate);
 
-      // Calculate streak using filtered data
       let currentStreak = 0;
       let longestStreak = 0;
       let streak = 0;
@@ -108,8 +102,8 @@ const recentCerts = certificates
 
 const featured = projects.filter(p => p.featured).slice(0, 6);
 
-// ===== Helper: Build week-based heatmap (like GitHub) =====
-function buildHeatmapWeeks(contributions, daysToShow = 365) {
+// ===== Build 6‑month heatmap (180 days) =====
+function buildHeatmapWeeks(contributions, daysToShow = 180) {
   const today = new Date();
   const startDate = new Date(today);
   startDate.setDate(startDate.getDate() - daysToShow + 1);
@@ -142,11 +136,10 @@ function buildHeatmapWeeks(contributions, daysToShow = 365) {
     weeks.push(week);
     if (current > today) break;
   }
-
   return weeks;
 }
 
-const heatmapWeeks = buildHeatmapWeeks(contributionsData, 365);
+const heatmapWeeks = buildHeatmapWeeks(contributionsData, 180); // 6 months
 
 // ===== SEO =====
 const seo = {
@@ -194,7 +187,6 @@ const seo = {
     <div class="eyebrow">Coding Stats</div>
     <h2 class="heading-font">LeetCode &amp; <span class="gradient-text">HackerRank</span></h2>
     <div class="stats-grid">
-      <!-- LeetCode Card -->
       <div class="card stat-box leetcode-box">
         <div class="stat-box-header">
           <img src="https://leetcode.com/_next/static/images/logo-dark-c96c407d175e36c81e236fcfdd682a0b.png" alt="LeetCode" width="64" height="64" />
@@ -213,7 +205,6 @@ const seo = {
         </div>
       </div>
 
-      <!-- HackerRank Card -->
       <div class="card stat-box hackerrank-box">
         <div class="stat-box-header">
           <img src="https://avatars.githubusercontent.com/u/7596827?v=4" alt="HackerRank" width="64" height="64" />
@@ -243,7 +234,7 @@ const seo = {
     </div>
   </section>
 
-  <!-- ===== GitHub Stats ===== -->
+  <!-- ===== GitHub Stats (6‑month heatmap) ===== -->
   <section class="section github-stats">
     <div class="eyebrow">GitHub Analytics</div>
     <h2 class="heading-font">Open Source <span class="gradient-text">Activity</span></h2>
@@ -293,7 +284,7 @@ const seo = {
         </div>
       </div>
 
-      <!-- Contributions & Heatmap -->
+      <!-- Contributions & Heatmap (6 months) -->
       <div class="card stat-box github-box heatmap-box">
         <div class="stat-box-header">
           <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="32" height="32" />
@@ -344,7 +335,7 @@ const seo = {
                 </div>
               </div>
             </div>
-            <p class="heatmap-label">Last 365 days — contributions since 2026</p>
+            <p class="heatmap-label">Last 6 months (since 2026)</p>
           </>
         ) : (
           <p class="stat-error">Unable to load contributions. <a href="https://github.com/anshumanhq" target="_blank">View GitHub</a></p>
@@ -425,84 +416,30 @@ const seo = {
   .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.3; z-index: 0; }
   .orb1 { width: 460px; height: 460px; background: var(--accent); top: -140px; right: -100px; }
   .orb2 { width: 360px; height: 360px; background: var(--accent-2); bottom: -80px; left: -80px; }
-  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+  .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
   .badge { margin-bottom: 20px; }
   .hero h1 { font-size: clamp(2.2rem, 5.2vw, 3.6rem); margin: 16px 0; }
   .tagline { color: var(--accent-2); font-weight: 600; font-size: 1.1rem; margin-bottom: 14px; }
   .desc { color: var(--text-dim); max-width: 520px; margin-bottom: 30px; }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .hero-image { display: flex; justify-content: center; }
-  .hero-image img {
-    width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover;
-    border-radius: 50%; border: 4px solid var(--accent);
-    box-shadow: var(--shadow-glow);
-  }
-  .hero-stats {
-    position: relative; z-index: 1; display: flex; justify-content: center; gap: 20px;
-    flex-wrap: wrap; margin-top: 70px; padding-top: 40px; border-top: 1px solid var(--border);
-  }
+  .hero-image img { width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); box-shadow: var(--shadow-glow); }
+  .hero-stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 70px; padding-top: 40px; border-top: 1px solid var(--border); }
   .stat-card { text-align: center; }
   .stat-num { display: block; font-size: 2.2rem; font-weight: 700; font-family: 'Space Grotesk'; }
   .stat-card span:last-child { color: var(--text-dim); font-size: 0.85rem; }
 
   /* ===== Coding Stats ===== */
   .coding-stats .heading-font { margin-bottom: 44px; }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .stat-box {
-    padding: 28px 24px;
-    text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .stat-box-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-  .stat-box-header img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
-  .stat-box-title {
-    font-weight: 700;
-    font-size: 1.2rem;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-  .leetcode-card-img {
-    width: 100%;
-    max-width: 320px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+  .stat-box { padding: 28px 24px; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); backdrop-filter: blur(10px); display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .stat-box-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; }
+  .stat-box-header img { width: 32px; height: 32px; object-fit: contain; }
+  .stat-box-title { font-weight: 700; font-size: 1.2rem; font-family: 'Space Grotesk', sans-serif; }
+  .leetcode-card-img { width: 100%; max-width: 320px; border-radius: 8px; transition: transform 0.2s; }
   .leetcode-card-img:hover { transform: scale(1.02); }
-  .hackerrank-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 10px 0;
-  }
-  .badge-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
+  .hackerrank-badges { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 10px 0; }
+  .badge-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .badge-icon-img { width: 50px; height: 50px; object-fit: contain; }
   .badge-label { font-size: 0.85rem; font-weight: 500; color: var(--text-dim); }
   .badge-stars { display: flex; gap: 2px; }
@@ -513,169 +450,50 @@ const seo = {
 
   /* ===== GitHub Stats ===== */
   .github-stats .heading-font { margin-bottom: 44px; }
-  .github-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .github-box {
-    padding: 24px 20px;
-    height: 100%;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-  .user-detail {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
+  .github-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .github-box { padding: 24px 20px; height: 100%; min-height: 280px; display: flex; flex-direction: column; }
+  .user-detail { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
   .user-avatar img { border-radius: 50%; border: 2px solid var(--accent); }
   .user-info h3 { font-size: 1.2rem; margin: 0; }
   .user-info p { color: var(--text-dim); font-size: 0.85rem; margin: 4px 0 0; }
-  .user-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    width: 100%;
-    margin: 12px 0;
-  }
-  .mini-stat {
-    text-align: center;
-    background: var(--bg-soft);
-    padding: 8px 4px;
-    border-radius: var(--radius-sm);
-  }
-  .mini-stat-num {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 700;
-    font-family: 'Space Grotesk';
-    color: var(--accent-2);
-  }
-  .mini-stat-label {
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
+  .user-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; margin: 12px 0; }
+  .mini-stat { text-align: center; background: var(--bg-soft); padding: 8px 4px; border-radius: var(--radius-sm); }
+  .mini-stat-num { display: block; font-size: 1.4rem; font-weight: 700; font-family: 'Space Grotesk'; color: var(--accent-2); }
+  .mini-stat-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
 
-  .streak-stats {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 12px 0;
-  }
+  .streak-stats { display: flex; justify-content: center; gap: 30px; margin: 12px 0; }
   .streak-item { text-align: center; }
-  .streak-num {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-family: 'Space Grotesk';
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  .streak-num { display: block; font-size: 1.8rem; font-weight: 700; font-family: 'Space Grotesk'; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .streak-item span:last-child { font-size: 0.75rem; color: var(--text-dim); }
 
   .heatmap-wrapper { width: 100%; overflow-x: auto; padding: 4px 0; }
-  .heatmap-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(14px, 1fr));
-    gap: 3px;
-    width: 100%;
-    min-width: 720px;
-  }
+  .heatmap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14px, 1fr)); gap: 3px; width: 100%; min-width: 500px; }
   .heatmap-week { display: grid; grid-template-rows: repeat(7, 1fr); gap: 3px; }
-  .heatmap-cell {
-    aspect-ratio: 1;
-    border-radius: 2px;
-    min-width: 10px;
-    min-height: 10px;
-    background-color: #161b22;
-    transition: transform 0.1s;
-    cursor: default;
-  }
+  .heatmap-cell { aspect-ratio: 1; border-radius: 2px; min-width: 10px; min-height: 10px; background-color: #161b22; transition: transform 0.1s; cursor: default; }
   .heatmap-cell:hover { transform: scale(1.5); z-index: 2; }
-
   .heatmap-labels { margin-top: 8px; }
-  .day-labels {
-    display: grid;
-    grid-template-columns: 30px 1fr;
-    gap: 4px;
-    align-items: center;
-    font-size: 0.65rem;
-    color: var(--text-dim);
-    padding-left: 4px;
-  }
+  .day-labels { display: grid; grid-template-columns: 30px 1fr; gap: 4px; align-items: center; font-size: 0.65rem; color: var(--text-dim); padding-left: 4px; }
   .day-labels span { padding: 2px 0; text-align: left; }
-
-  .heatmap-label {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    text-align: center;
-    margin-top: 8px;
-  }
+  .heatmap-label { font-size: 0.75rem; color: var(--text-dim); text-align: center; margin-top: 8px; }
 
   .top-languages { margin-top: 20px; text-align: center; }
   .lang-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
-  .lang-tag {
-    padding: 6px 14px;
-    border-radius: 100px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    font-size: 0.8rem;
-    color: var(--text-dim);
-  }
+  .lang-tag { padding: 6px 14px; border-radius: 100px; background: var(--surface); border: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim); }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 44px; }
   .center-btn { text-align: center; margin-top: 40px; }
 
-  .cert-preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 44px;
-  }
-  .cert-preview-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: transform 0.3s, border-color 0.3s;
-  }
+  .cert-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 44px; }
+  .cert-preview-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: transform 0.3s, border-color 0.3s; }
   .cert-preview-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-  .cert-preview-image {
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-    margin-bottom: 14px;
-  }
+  .cert-preview-image { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 14px; }
   .cert-preview-image img { width: 100%; height: 100%; object-fit: contain; background: var(--bg-soft); }
-  .cert-preview-issuer {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent-2);
-    font-weight: 600;
-  }
+  .cert-preview-issuer { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-2); font-weight: 600; }
   .cert-preview-body h3 { font-size: 0.95rem; margin-top: 6px; line-height: 1.3; }
 
   .quick-links-section { background: var(--bg-soft); padding: 80px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .quick-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 30px 22px; text-align: center; transition: all 0.3s;
-  }
+  .quick-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 22px; text-align: center; transition: all 0.3s; }
   .quick-card:hover { transform: translateY(-6px); border-color: var(--accent); }
   .quick-icon { font-size: 2rem; display: block; margin-bottom: 14px; }
   .quick-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
@@ -693,12 +511,12 @@ const seo = {
     .stats-grid { grid-template-columns: 1fr; }
     .github-grid { grid-template-columns: 1fr; }
     .user-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .heatmap-grid { min-width: 500px; }
+    .heatmap-grid { min-width: 400px; }
   }
   @media (max-width: 560px) {
     .quick-grid { grid-template-columns: 1fr; }
     .cert-preview-grid { grid-template-columns: 1fr 1fr; }
-    .heatmap-grid { min-width: 360px; }
+    .heatmap-grid { min-width: 300px; }
     .heatmap-cell { min-width: 8px; min-height: 8px; }
   }
 </style>
